@@ -4,6 +4,8 @@
 package frc.robot;
 
 public class Constants {
+    public static final boolean enable = true;
+	public static final double threshholdTime = 0;
 	 /* Current threshold to trigger current limit */
 	 public static final int kPeakCurrentAmps = 3;
     
@@ -74,5 +76,8 @@ public class Constants {
 	public final static int kSlot_Distanc = SLOT_0;
 	public final static int kSlot_Turning = SLOT_1;
 	public final static int kSlot_Velocit = SLOT_2;
-	public final static int kSlot_MotProf = SLOT_3;
+    public final static int kSlot_MotProf = SLOT_3;
+    //smartdashboard editible values
+    public final static String kAmpLimitStr = "Amp Limit";
+    public final static String kAmpPeakStr = "Amp Peak";
 }
