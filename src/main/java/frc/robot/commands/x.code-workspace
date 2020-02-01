@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "C:\\FRC_Git\\Color-Sensor-v3-Examples"
+		},
+		{
+			"name": "GonkTest",
+			"path": "C:\\FRC_Git\\GonkTest"
+		},
+		{
+			"name": "shooter",
+			"path": "C:\\FRC_Git\\shooter"
+		},
+		{
+			"name": "InfiniteRecharge2020",
+			"path": "C:\\FRC_Git\\InfiniteRecharge2020"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}
