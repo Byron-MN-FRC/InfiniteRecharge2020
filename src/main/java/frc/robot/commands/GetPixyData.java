@@ -12,6 +12,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants;
 import frc.robot.Robot;
 import java.time.Duration;
 import java.time.Instant;
@@ -27,8 +28,6 @@ public class GetPixyData extends Command {
     private SerialPort serial = null;
     private boolean useLED = true;
     String dataBuffer;
-    Boolean showLogTimes = true;
-    Boolean showDebug = true;
 
     private Instant lastTimeStamp = Instant.now();
     private long msBetweenUpdates = 25;
@@ -90,16 +89,17 @@ public class GetPixyData extends Command {
                 if (evaluateDataBuffer()) {
                     reset();
                     lastTimeStamp = Instant.now();
-                    if (showDebug) {
+                    if (Constants.pixyDebug) {
                         System.out.print("Pixy Data Retrieved in ");
                         System.out.print(Duration.between(timeoutTrackStart, Instant.now()).toMillis());
                         System.out.println(" ms.");
                     }
                 }
             }
+        }
+        if (Constants.pixyOnDashboard) {
             SmartDashboard.putNumber("PwrCellXPos", blockPos); 
-            SmartDashboard.putNumber("PwrCellHeight", blockHeight
-            ); 
+            SmartDashboard.putNumber("PwrCellHeight", blockHeight); 
         }
     }
 
@@ -108,7 +108,7 @@ public class GetPixyData extends Command {
         boolean retval;
         if (serial.getBytesReceived() > 0) {
             String response = serial.readString();
-            if (showDebug) System.out.println("Received Pixy Data:'" + response + "''");
+            if (Constants.pixyDebug) System.out.println("Received Pixy Data:'" + response + "''");
             dataBuffer = dataBuffer + response;
             retval = true;
         } else {
@@ -138,7 +138,7 @@ public class GetPixyData extends Command {
             blockPos = decodeX(dataBuffer);
             blockHeight = decodeHeight(dataBuffer);
 
-            if (showDebug) {
+            if (Constants.pixyDebug) {
                 System.out.print("Data received from pixy: ");
                 System.out.println(dataBuffer);
                 System.out.print("blockPos = ");
@@ -187,7 +187,7 @@ public class GetPixyData extends Command {
     }
 
     private void logMethodCalltime(String method, Instant lastTimeStamp) {
-        if (showLogTimes) {
+        if (Constants.pixyDebug) {
             System.out.print(method);
             System.out.print(" - ");
             System.out.print(Duration.between(lastTimeStamp, Instant.now()).toMillis());
@@ -202,7 +202,7 @@ public class GetPixyData extends Command {
         try {
             result = Integer.parseInt(input.substring(sPos + 1, commaPos));
         } catch (Exception e) {
-            System.out.println("decodeX Error - input=" + input);
+            System.out.println("pixy decodeX Error - input=" + input);
         }
         return result;
     }
@@ -214,7 +214,7 @@ public class GetPixyData extends Command {
         try {
             result = Integer.parseInt(input.substring(commaPos + 1, ePos));
         } catch (Exception ex) {
-            System.out.println("decodeHeight Error - input=" + input);
+            System.out.println("pixy decodeHeight Error - input=" + input);
         }
         return result;
     }
