@@ -69,6 +69,7 @@ public class OI {
 public JoystickButton btnAcquire;
 public JoystickButton btnLimeLight;
 public JoystickButton btnShiftUp;
+public JoystickButton btnShiftDown;
 public Joystick joystick;
 public JoystickButton btnStartShooter;
 public JoystickButton btnCilmbHooks;
@@ -99,8 +100,10 @@ btnStartShooter = new JoystickButton(xBoxController, 5);
 btnStartShooter.whileHeld(new startShooter());
 joystick = new Joystick(0);
 
+btnShiftDown = new JoystickButton(joystick, 12);
+btnShiftDown.whenPressed(new shiftDown());
 btnShiftUp = new JoystickButton(joystick, 11);
-btnShiftUp.whileHeld(new shiftUp());
+btnShiftUp.whenPressed(new shiftUp());
 btnLimeLight = new JoystickButton(joystick, 3);
 btnLimeLight.whileHeld(new driveWithLimeLight());
 btnAcquire = new JoystickButton(joystick, 2);
