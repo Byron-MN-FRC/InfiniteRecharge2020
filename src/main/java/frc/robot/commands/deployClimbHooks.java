@@ -38,6 +38,7 @@ public class deployClimbHooks extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        setTimeout(3);
 
     }
 
@@ -45,12 +46,13 @@ public class deployClimbHooks extends Command {
     @Override
     protected void execute() {
         Robot.climb.deployClimbHooks();
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
