@@ -251,7 +251,67 @@ Children:
         value: *id003
     Base: Subsystem
     Name: BallShooter
-  - Children: []
+  - Children:
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '2'
+          name: CAN ID
+          validators: *id007
+          value: '7'
+      Base: Talon SRX
+      Name: hookMotor
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '2'
+          name: CAN ID
+          validators: *id007
+          value: '8'
+      Base: Talon SRX
+      Name: winchMotor
+    - Children: []
+      Properties:
+        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id004
+          default: '0'
+          name: Input Channel (Analog)
+          validators: *id005
+          value: '3'
+      Base: Analog Input
+      Name: hookLimitSwitch
+    - Children: []
+      Properties:
+        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id004
+          default: '0'
+          name: Input Channel (Analog)
+          validators: *id005
+          value: '4'
+      Base: Analog Input
+      Name: proxSensor
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '2'
+          name: CAN ID
+          validators: *id007
+          value: '9'
+      Base: Talon SRX
+      Name: buddyWinchFront
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '2'
+          name: CAN ID
+          validators: *id007
+          value: '10'
+      Base: Talon SRX
+      Name: buddyWinchBack
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -1007,6 +1067,28 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: stopShooter
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Climb}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id018 []
+        name: Parameter presets
+        validators: null
+        value: *id018
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: lowerLinearSlide
   Properties: {}
   Base: Commands
   Name: Commands
