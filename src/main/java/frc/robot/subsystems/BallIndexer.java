@@ -119,6 +119,9 @@ beltMotor = new WPI_TalonSRX(12);
     public WPI_TalonSRX getBeltMotor(){
         return beltMotor;
     }
+    public void runBelt(){
+        beltMotor.set(-.6);
+    }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
