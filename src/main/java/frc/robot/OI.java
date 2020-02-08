@@ -35,6 +35,7 @@ import frc.robot.commands.stopAcquire;
 import frc.robot.commands.stopDrive;
 import frc.robot.commands.stopFlyWheel;
 import frc.robot.commands.stopShooter;
+import frc.robot.commands.testClosedLoopTurn;
 import frc.robot.commands.stopShooting;
 
 /**
@@ -134,6 +135,8 @@ btnAcquire.whileHeld(new startAcquisition());
         SmartDashboard.putData("indexReverseOne", new indexReverseOne());
         SmartDashboard.putData("stopAcquire", new stopAcquire());
         SmartDashboard.putData("stopShooter", new stopShooter());
+        SmartDashboard.putData("testClosedLoopTurn: left_90", new testClosedLoopTurn(-90));
+        SmartDashboard.putData("testClosedLoopTurn: right_90", new testClosedLoopTurn(90));
         SmartDashboard.putData("lowerLinearSlide", new lowerLinearSlide());
         SmartDashboard.putData("spinUp", new spinUp());
         SmartDashboard.putData("stopFlyWheel", new stopFlyWheel());

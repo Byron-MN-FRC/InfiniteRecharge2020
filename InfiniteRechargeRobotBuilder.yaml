@@ -15,7 +15,7 @@ Children:
           validators: &id002 [CANID]
           value: '0'
       Base: Talon FX
-      Name: leftSlaveFalcon
+      Name: leftFollower
     - Children: []
       Properties:
         CAN ID: !!robotbuilder.data.properties.ChoicesProperty
@@ -25,7 +25,7 @@ Children:
           validators: *id002
           value: '2'
       Base: Talon FX
-      Name: rightSlaveFalcon
+      Name: rightFollower
     - Children: []
       Properties:
         Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
@@ -78,7 +78,7 @@ Children:
             validators: *id002
             value: '3'
         Base: Talon FX
-        Name: rightMasterFalcon
+        Name: rightMaster
       - Children: []
         Properties:
           CAN ID: !!robotbuilder.data.properties.ChoicesProperty
@@ -88,14 +88,14 @@ Children:
             validators: *id002
             value: '1'
         Base: Talon FX
-        Name: leftMasterFalcon
+        Name: leftMaster
       Properties:
         Right Motor: !!robotbuilder.data.properties.ChildSelectionProperty
           default: 1
           name: Right Motor
           type: PIDOutput
           validators: [RobotDrive2, ChildDropdownSelected]
-          value: rightMasterFalcon
+          value: leftMaster
         Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Maximum Output, validators: null, value: 1.0}
         Left Motor: !!robotbuilder.data.properties.ChildSelectionProperty
@@ -103,7 +103,7 @@ Children:
           name: Left Motor
           type: PIDOutput
           validators: [RobotDrive2, ChildDropdownSelected]
-          value: leftMasterFalcon
+          value: rightMaster
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
           name: Safety Expiration Time, validators: null, value: 0.1}
         Safety Enabled: !!robotbuilder.data.properties.BooleanProperty {default: true,
@@ -261,67 +261,7 @@ Children:
         value: *id003
     Base: Subsystem
     Name: BallShooter
-  - Children:
-    - Children: []
-      Properties:
-        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id006
-          default: '2'
-          name: CAN ID
-          validators: *id007
-          value: '7'
-      Base: Talon SRX
-      Name: hookMotor
-    - Children: []
-      Properties:
-        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id006
-          default: '2'
-          name: CAN ID
-          validators: *id007
-          value: '8'
-      Base: Talon SRX
-      Name: winchMotor
-    - Children: []
-      Properties:
-        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
-          default: '0'
-          name: Input Channel (Analog)
-          validators: *id005
-          value: '3'
-      Base: Analog Input
-      Name: hookLimitSwitch
-    - Children: []
-      Properties:
-        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
-          default: '0'
-          name: Input Channel (Analog)
-          validators: *id005
-          value: '4'
-      Base: Analog Input
-      Name: proxSensor
-    - Children: []
-      Properties:
-        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id006
-          default: '2'
-          name: CAN ID
-          validators: *id007
-          value: '9'
-      Base: Talon SRX
-      Name: buddyWinchFront
-    - Children: []
-      Properties:
-        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id006
-          default: '2'
-          name: CAN ID
-          validators: *id007
-          value: '10'
-      Base: Talon SRX
-      Name: buddyWinchBack
+  - Children: []
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -1085,86 +1025,30 @@ Children:
         default: []
         name: Parameters
         validators: null
-        value: []
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: angle, type: double}
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Climb}
+        name: Requires, type: Subsystem, validators: null, value: None}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: []
-        name: Parameter presets
-        validators: null
-        value: []
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-    Base: Command
-    Name: lowerLinearSlide
-  - Children: []
-    Properties:
-      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Autonomous Selection, validators: null, value: false}
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value: []
-      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Run When Disabled, validators: null, value: false}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: BallShooter}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id013 []
+        default: &id013
+        - !!robotbuilder.data.properties.ParameterSet
+          name: left_90
+          parameters:
+          - {name: angle, type: double, value: '-90'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: right_90
+          parameters:
+          - {name: angle, type: double, value: '90'}
         name: Parameter presets
         validators: null
         value: *id013
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
-    Name: spinUp
-  - Children: []
-    Properties:
-      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Autonomous Selection, validators: null, value: false}
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value: []
-      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Run When Disabled, validators: null, value: false}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: BallShooter}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id014 []
-        name: Parameter presets
-        validators: null
-        value: *id014
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-    Base: Command
-    Name: stopFlyWheel
-  - Children: []
-    Properties:
-      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Autonomous Selection, validators: null, value: false}
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value: []
-      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Run When Disabled, validators: null, value: false}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: BallShooter}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id015 []
-        name: Parameter presets
-        validators: null
-        value: *id015
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-    Base: Command
-    Name: stopShooting
+    Name: testClosedLoopTurn
+
   Properties: {}
   Base: Commands
   Name: Commands
@@ -1186,9 +1070,9 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\heinz\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\FRC_Git'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\FRCProjects',
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\heinz\FRCProjects',
     extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\FRC_GIT'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
