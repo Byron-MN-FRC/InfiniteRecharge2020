@@ -88,14 +88,22 @@ public class Constants {
 	public final static int kSlot_Distanc = SLOT_0;
 	public final static int kSlot_Turning = SLOT_1;
 	public final static int kSlot_Velocit = SLOT_2;
-	public final static int kSlot_MotProf = SLOT_3;
-	// smartdashboard editible values
-	public final static String kAmpLimitStr = "Amp Limit";
+  public final static int kSlot_MotProf = SLOT_3;
+  //smartdashboard editible values
+  public final static String kAmpLimitStr = "Amp Limit";
 	public final static String kAmpPeakStr = "Amp Peak";
+	
+  //Current (amp) limit
+  public static final double currentLimit = 30;
+
+  //Threshold that must be exceeded for current limiting to occur
+  public static final double thresholdLimit = 20;
+
+  //How long the current has to be above the threshold to trigger limiting
+  public static final double thresholdTime = 0;
 
 	// Pixy constants
 	public final static boolean pixyOnDashboard = true;
 	public final static boolean pixyDebug = true;
 	public final static boolean pixyLogTimes = true;
-
 }

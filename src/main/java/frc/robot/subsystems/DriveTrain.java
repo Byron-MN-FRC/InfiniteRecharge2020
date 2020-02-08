@@ -133,7 +133,7 @@ public class DriveTrain extends Subsystem {
             change = -0.01;
         }
         limitedJoystick += change;
-        tankDrive.arcadeDrive(limitedJoystick, twist);
+        tankDrive.arcadeDrive(limitedJoystick, -twist);
     }
 
     public void motorConfig() {

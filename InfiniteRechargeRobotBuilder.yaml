@@ -213,7 +213,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id007
-          value: '6'
+          value: '12'
       Base: Talon SRX
       Name: beltMotor
     Properties:
@@ -233,7 +233,17 @@ Children:
         value: *id003
     Base: Subsystem
     Name: BallIndexer
-  - Children: []
+  - Children:
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
+          value: '13'
+      Base: Talon FX
+      Name: shootMotor
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -1038,6 +1048,7 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: testClosedLoopTurn
+
   Properties: {}
   Base: Commands
   Name: Commands
