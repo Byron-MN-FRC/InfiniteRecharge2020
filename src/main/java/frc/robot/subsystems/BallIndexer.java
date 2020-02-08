@@ -52,7 +52,7 @@ indexToShootSensor = new AnalogInput(2);
 addChild("indexToShootSensor",indexToShootSensor);
 
         
-beltMotor = new WPI_TalonSRX(6);
+beltMotor = new WPI_TalonSRX(12);
 
 
         
@@ -107,11 +107,17 @@ beltMotor = new WPI_TalonSRX(6);
         return retValue;
     }
     public void startIndexMotor(){
-        beltMotor.set(.5);
+        beltMotor.set(-.7);
     }
     public void stopIndexMotor(){
         beltMotor.set(0);
         indexerRunning = false; 
+    }
+    public void reverseIndexMotor(){
+        beltMotor.set(.3);
+    }
+    public WPI_TalonSRX getBeltMotor(){
+        return beltMotor;
     }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
