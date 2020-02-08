@@ -352,44 +352,15 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '3'
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: &id011 [TypeDropdownSelected]
-          value: driveWithLimeLight
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id012 [whileHeld, whenPressed, whenReleased]
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
-      Base: Joystick Button
-      Name: btnLimeLight
-    - Children: []
-      Properties:
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: Joystick}
-        Parameters: !!robotbuilder.data.properties.ParametersProperty
-          default: []
-          name: Parameters
-          validators: null
-          value: []
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id010
-          default: '1'
-          name: Button
-          validators: null
           value: '2'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
           type: Command
-          validators: *id011
+          validators: &id011 [TypeDropdownSelected]
           value: startAcquisition
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id012
+          choices: &id012 [whileHeld, whenPressed, whenReleased]
           default: whileHeld
           name: When to Run
           validators: null
@@ -555,7 +526,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '10'
+          value: '3'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -567,9 +538,38 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
       Base: Joystick Button
       Name: btnLimeLightTurn
+    - Children: []
+      Properties:
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: Joystick}
+        Parameters: !!robotbuilder.data.properties.ParametersProperty
+          default: []
+          name: Parameters
+          validators: null
+          value: []
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id010
+          default: '1'
+          name: Button
+          validators: null
+          value: '11'
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id011
+          value: shiftDown
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id012
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenReleased
+      Base: Joystick Button
+      Name: btnShiftDown
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: &id013 ['0', '1', '2', '3', '4', '5']
@@ -594,7 +594,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '4'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -606,7 +606,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
       Base: Joystick Button
       Name: btnRobotUp
     - Children: []
@@ -623,7 +623,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '4'
+          value: '6'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -652,7 +652,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '7'
+          value: '3'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -681,7 +681,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '8'
+          value: '1'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -702,7 +702,7 @@ Children:
         default: 1
         name: Number
         validators: *id014
-        value: '2'
+        value: '1'
     Base: Joystick
     Name: ClimbJoystick
   Properties: {}
