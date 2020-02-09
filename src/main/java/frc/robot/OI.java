@@ -104,7 +104,7 @@ btnRobotUp.whileHeld(new pullRobotUp());
 joystick1 = new Joystick(0);
 
 btnLimeLightTurn = new JoystickButton(joystick1, 10);
-btnLimeLightTurn.whileHeld(new LimeLightTurn());
+btnLimeLightTurn.whenPressed(new LimeLightTurn());
 btnStartShooter = new JoystickButton(joystick1, 1);
 btnStartShooter.whileHeld(new startShooter());
 btnStopFlyWheel = new JoystickButton(joystick1, 4);

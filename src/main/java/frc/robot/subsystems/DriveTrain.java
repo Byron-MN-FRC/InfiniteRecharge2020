@@ -170,8 +170,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public void closedLoopTurn(double angle) {
-        pigeon.setYaw(0, Constants.kTimeoutMs);
-        pigeon.setAccumZAngle(0, Constants.kTimeoutMs);
+        zeroSensors();
         rightMaster.set(ControlMode.MotionMagic, 0, DemandType.AuxPID, angle * 10);
         leftMaster.follow(rightMaster, FollowerType.AuxOutput1);
         //rightFollower.follow(rightMaster);
