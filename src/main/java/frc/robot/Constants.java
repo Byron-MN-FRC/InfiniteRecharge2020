@@ -8,6 +8,7 @@ public class Constants {
 	public static final boolean kEnableCurrentLimiting_BS = true;
 
 	// Drive Train constants
+	public static final boolean kDebug_DT = true;
 	public static final boolean kEnableCurrentLimiting_DT = true;
 	public final static double kAmpLimit_dt = 2;
 	public final static double kAmpPeak_dt = 3;
