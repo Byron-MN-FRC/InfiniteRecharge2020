@@ -58,8 +58,6 @@ private DifferentialDrive tankDrive;
     private double y = 0;
     private double twist = 0;
  // Gonk Test
- //   TalonFXInvertType _leftInvert = TalonFXInvertType.CounterClockwise; // Same as invert = "false"
- //   TalonFXInvertType _rightInvert = TalonFXInvertType.Clockwise; // Same as invert = "true"
     TalonFXInvertType _rightInvert = TalonFXInvertType.CounterClockwise; // Same as invert = "false"
     TalonFXInvertType _leftInvert = TalonFXInvertType.Clockwise; // Same as invert = "true"
     TalonFXConfiguration _leftConfig = new TalonFXConfiguration();
@@ -93,7 +91,7 @@ leftMaster = new WPI_TalonFX(1);
         
 tankDrive = new DifferentialDrive(rightMaster, leftMaster);
 addChild("TankDrive",tankDrive);
-tankDrive.setSafetyEnabled(true);
+tankDrive.setSafetyEnabled(false);
 tankDrive.setExpiration(0.1);
 tankDrive.setMaxOutput(1.0);
 
