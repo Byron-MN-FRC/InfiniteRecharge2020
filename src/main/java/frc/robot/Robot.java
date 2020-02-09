@@ -120,6 +120,7 @@ climb = new Climb();
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         Robot.driveTrain.motorConfig();
+        Robot.driveTrain.zeroSensors();
     }
 
     /**
