@@ -106,4 +106,7 @@ public class Constants {
 	public final static boolean pixyOnDashboard = true;
 	public final static boolean pixyDebug = true;
 	public final static boolean pixyLogTimes = true;
+
+	//Hook Height constants
+	public final static double hookEncoderUnits = 10000;
 }
