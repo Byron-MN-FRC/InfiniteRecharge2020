@@ -40,8 +40,10 @@ public class LimeLightTurn extends Command {
     @Override
     protected void initialize() {
         LimelightUtility.RefreshTrackingData();
+        LimelightUtility.LogTrackingData();
         setTimeout(5);
-        targetTurn = LimelightUtility.Camera3dTranslation_yaw;
+        //targetTurn = LimelightUtility.Camera3dTranslation_yaw;
+        targetTurn = -LimelightUtility.TargetHorizontalOffset;
         System.out.println("targetTurn" + targetTurn);
         
         Robot.driveTrain.closedLoopTurn(targetTurn);
