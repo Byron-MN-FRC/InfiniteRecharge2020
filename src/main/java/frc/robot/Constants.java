@@ -7,13 +7,13 @@ public class Constants {
 	public static final boolean enable = true;
 	public static final double threshholdTime = 0;
 	/* Current threshold to trigger current limit */
-	public static final int kPeakCurrentAmps = 3;
+	public static final int kPeakCurrentAmps = 15;
 
 	/* Duration after current exceed Peak Current to trigger current limit */
 	public static final int kPeakTimeMs = 0;
 
 	/* Current to mantain once current limit has been triggered */
-	public static final int kContinCurrentAmps = 2;
+	public static final int kContinCurrentAmps = 10;
 
 	/**
 	 * Number of joystick buttons to poll. 10 means buttons[1,9] are polled, which
