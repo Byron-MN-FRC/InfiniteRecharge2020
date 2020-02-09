@@ -88,7 +88,7 @@ shootMotor = new WPI_TalonFX(13);
         Robot.ballIndexer.getBeltMotor().set(0);
     }
 
-    public final SupplyCurrentLimitConfiguration currentLimiting = new SupplyCurrentLimitConfiguration(Constants.enable,
+    public final SupplyCurrentLimitConfiguration currentLimiting = new SupplyCurrentLimitConfiguration(Constants.kEnableCurrentLimiting_BS,
             Constants.currentLimit, Constants.thresholdLimit, Constants.thresholdTime);
 
     public void motorConfig() {
