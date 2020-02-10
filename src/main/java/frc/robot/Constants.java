@@ -4,10 +4,18 @@
 package frc.robot;
 
 public class Constants {
-	public static final boolean enable = true;
-	public static final double threshholdTime = 0;
-	/* Current threshold to trigger current limit */
-	public static final int kPeakCurrentAmps = 15;
+	// Ball Shooter constants
+	public static final boolean kEnableCurrentLimiting_BS = true;
+
+	// Drive Train constants
+	public static final boolean kDebug_DT = true;
+	public static final boolean kEnableCurrentLimiting_DT = true;
+	// public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "DriveTrain/Amp Limit";
+	// public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "DriveTrain/Amp Peak Limit";
+	public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "Amp Limit";
+	public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "Amp Peak Limit";
+
+	public static final double kthreshholdTime = 0;
 
 	/* Duration after current exceed Peak Current to trigger current limit */
 	public static final int kPeakTimeMs = 0;
@@ -50,19 +58,22 @@ public class Constants {
 	public final static double kNeutralDeadband = 0.001;
 
 	/**
-	 * PID Gains may have to be adjusted based on the responsiveness of control loop.
-     * kF: 1023 represents output value to Talon at 100%, 6800 represents Velocity units at 100% output
-     * Not all set of Gains are used in this project and may be removed as desired.
-     * 
-	 * 	                                    			  kP   kI   kD   kF               Iz    PeakOut */
-	public final static Gains kGains_Distanc = new Gains( 0.1, 0.0,  0.0, 0.0,            100,  0.50 );
-	public final static Gains kGains_Turning = new Gains( 2.0, 0.0,  4.0, 0.0,            200,  1.00 );
-	public final static Gains kGains_Velocit = new Gains( 0.1, 0.0, 20.0, 1023.0/6800.0,  300,  0.50 );
-	public final static Gains kGains_MotProf = new Gains( 1.0, 0.0,  0.0, 1023.0/6800.0,  400,  1.00 );
-	
-	/*Gains(kp, ki, kd, kf, izone, peak output);
-	*/
-   public static final Gains kGains_hookMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
+	 * PID Gains may have to be adjusted based on the responsiveness of control
+	 * loop. kF: 1023 represents output value to Talon at 100%, 6800 represents
+	 * Velocity units at 100% output Not all set of Gains are used in this project
+	 * and may be removed as desired.
+	 * 
+	 * kP kI kD kF Iz PeakOut
+	 */
+	public final static Gains kGains_Distanc = new Gains(0.1, 0.0, 0.0, 0.0, 100, 0.50);
+	public final static Gains kGains_Turning = new Gains(2.0, 0.0, 4.0, 0.0, 200, 1.00);
+	public final static Gains kGains_Velocit = new Gains(0.1, 0.0, 20.0, 1023.0 / 6800.0, 300, 0.50);
+	public final static Gains kGains_MotProf = new Gains(1.0, 0.0, 0.0, 1023.0 / 6800.0, 400, 1.00);
+
+	/*
+	 * Gains(kp, ki, kd, kf, izone, peak output);
+	 */
+	public static final Gains kGains_hookMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
 
 	/** ---- Flat constants, you should not need to change these ---- */
 	/*
@@ -88,25 +99,22 @@ public class Constants {
 	public final static int kSlot_Distanc = SLOT_0;
 	public final static int kSlot_Turning = SLOT_1;
 	public final static int kSlot_Velocit = SLOT_2;
-  public final static int kSlot_MotProf = SLOT_3;
-  //smartdashboard editible values
-  public final static String kAmpLimitStr = "Amp Limit";
-	public final static String kAmpPeakStr = "Amp Peak";
-	
-  //Current (amp) limit
-  public static final double currentLimit = 30;
+	public final static int kSlot_MotProf = SLOT_3;
 
-  //Threshold that must be exceeded for current limiting to occur
-  public static final double thresholdLimit = 20;
+	// Current (amp) limit
+	public static final double currentLimit = 30;
 
-  //How long the current has to be above the threshold to trigger limiting
-  public static final double thresholdTime = 0;
+	// Threshold that must be exceeded for current limiting to occur
+	public static final double thresholdLimit = 20;
+
+	// How long the current has to be above the threshold to trigger limiting
+	public static final double thresholdTime = 0;
 
 	// Pixy constants
 	public final static boolean pixyOnDashboard = true;
 	public final static boolean pixyDebug = true;
 	public final static boolean pixyLogTimes = true;
 
-	//Hook Height constants
+	// Hook Height constants
 	public final static double hookEncoderUnits = 10000;
 }
