@@ -1,0 +1,113 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="RFollow Temp" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.ProgressBar">
+		<location x="915" y="47"/>
+		<width>121</width>
+		<property name="Maximum" value="50.0"/>
+	</widget>
+	<widget field="RMaster Temp" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.ProgressBar">
+		<location x="774" y="46"/>
+		<width>124</width>
+		<property name="Maximum" value="50.0"/>
+	</widget>
+	<widget field="LFollow Temp" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.ProgressBar">
+		<location x="603" y="50"/>
+		<width>119</width>
+		<property name="Maximum" value="50.0"/>
+	</widget>
+	<widget field="LMaster Temp" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.ProgressBar">
+		<location x="459" y="48"/>
+		<width>129</width>
+		<property name="Maximum" value="50.0"/>
+	</widget>
+	<widget field="Auto mode" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="168" y="105"/>
+	</widget>
+	<widget field="test45" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="213" y="63"/>
+	</widget>
+	<widget field="Right velocity" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="168" y="42"/>
+	</widget>
+	<widget field="Amp Limit" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="173" y="21"/>
+	</widget>
+	<widget field="Shooter Temp" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="168" y="0"/>
+	</widget>
+	<widget field="Left velocity" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="504"/>
+	</widget>
+	<widget field="LMaster Amps" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="464" y="1"/>
+		<width>124</width>
+	</widget>
+	<widget field="RFollow Amps" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="919" y="1"/>
+		<width>117</width>
+	</widget>
+	<widget field="LMStator Stator" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="458" y="25"/>
+		<width>130</width>
+	</widget>
+	<widget field="Left encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="378"/>
+	</widget>
+	<widget field="limelight_Stream" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="357"/>
+	</widget>
+	<widget field="Shooter Velocity" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="336"/>
+	</widget>
+	<widget field="Pigeon Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="294"/>
+	</widget>
+	<widget field="Amp Peak Limit" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="252"/>
+	</widget>
+	<widget field="Pigeon Yaw" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="231"/>
+	</widget>
+	<widget field="LFollow Amps" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="604" y="1"/>
+		<width>118</width>
+	</widget>
+	<widget field="Right encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="35" y="177"/>
+		<width>158</width>
+	</widget>
+	<widget field="RMStator Stator" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="775" y="23"/>
+		<width>124</width>
+	</widget>
+	<widget field="LFStator Stator" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="600" y="25"/>
+		<width>123</width>
+	</widget>
+	<widget field="Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="300" y="209"/>
+	</widget>
+	<widget field="limelight_Interface" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="310" y="240"/>
+	</widget>
+	<widget field="limelight_PipelineName" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="307" y="286"/>
+	</widget>
+	<widget field="RMaster Amps" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="780" y="1"/>
+		<width>118</width>
+	</widget>
+	<widget field="RFStator Stator" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="912" y="23"/>
+		<width>124</width>
+	</widget>
+	<widget field="Pigeon Ready?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="217" y="479"/>
+	</widget>
+	<widget field="Left Temp" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="273"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>

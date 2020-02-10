@@ -10,12 +10,12 @@ public class Constants {
 	// Drive Train constants
 	public static final boolean kDebug_DT = true;
 	public static final boolean kEnableCurrentLimiting_DT = true;
-	public final static double kAmpLimit_dt = 2;
-	public final static double kAmpPeak_dt = 3;
+	// public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "DriveTrain/Amp Limit";
+	// public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "DriveTrain/Amp Peak Limit";
+	public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "Amp Limit";
+	public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "Amp Peak Limit";
 
 	public static final double kthreshholdTime = 0;
-	/* Current threshold to trigger current limit */
-	public static final int kPeakCurrentAmps = 15;
 
 	/* Duration after current exceed Peak Current to trigger current limit */
 	public static final int kPeakTimeMs = 0;
