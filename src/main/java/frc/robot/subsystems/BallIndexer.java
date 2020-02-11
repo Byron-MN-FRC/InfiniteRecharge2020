@@ -52,7 +52,7 @@ indexToShootSensor = new AnalogInput(2);
 addChild("indexToShootSensor",indexToShootSensor);
 
         
-beltMotor = new WPI_TalonSRX(12);
+beltMotor = new WPI_TalonSRX(11);
 
 
         
