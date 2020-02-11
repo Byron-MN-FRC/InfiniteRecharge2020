@@ -11,6 +11,7 @@
 
 package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.BallIndexerConstants;
 import frc.robot.Robot;
 
 /**
@@ -38,12 +39,13 @@ public class indexToShoot extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        setTimeout(BallIndexerConstants.indexToShootTimeout);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.ballIndexer.startIndexMotor();
+        Robot.ballIndexer.startIndexMotor(BallIndexerConstants.indexMotorSpeed);
         if (Robot.ballIndexer.ballPresent(2)){
             BallReady = true;
         }

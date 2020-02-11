@@ -11,6 +11,7 @@
 
 package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.BallIndexerConstants;
 import frc.robot.Robot;
 
 /**
@@ -39,12 +40,13 @@ public class indexOneBall extends Command {
     @Override
     protected void initialize() {
         BallArrived = false; 
+        setTimeout(BallIndexerConstants.indexOneTimeOut);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.ballIndexer.startIndexMotor();
+        Robot.ballIndexer.startIndexMotor(BallIndexerConstants.indexMotorSpeed);
         if (Robot.ballIndexer.ballPresent(1)){
             BallArrived = true; 
         }
@@ -53,6 +55,9 @@ public class indexOneBall extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        // always check for timeout first.
+        if (isTimedOut()) return true;
+
         if (BallArrived){
             if (!Robot.ballIndexer.ballPresent(1)){
                 return true;
@@ -71,5 +76,6 @@ public class indexOneBall extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

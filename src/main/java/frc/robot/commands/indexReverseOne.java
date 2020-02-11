@@ -8,9 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 package frc.robot.commands;
+
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.BallIndexerConstants;
 import frc.robot.Robot;
 
 /**
@@ -38,32 +39,37 @@ public class indexReverseOne extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        setTimeout(BallIndexerConstants.indexReverseOneTimeout);
     }
-
-    // Called repeatedly when this Command is scheduled to run
+    
+     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.ballIndexer.startIndexMotor();
+        Robot.ballIndexer.startIndexMotor(BallIndexerConstants.reverseMotorSpeed);
         if (Robot.ballIndexer.ballPresent(1)){
             indexOneBall idxCmd = new indexOneBall();
             idxCmd.start();
+            cancel();
         }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        if (isTimedOut()) return true;
         return false;
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.ballIndexer.stopIndexMotor();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

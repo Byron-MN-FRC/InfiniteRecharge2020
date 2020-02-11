@@ -40,7 +40,7 @@ public class LimeLightTurn extends Command {
     @Override
     protected void initialize() {
         LimelightUtility.RefreshTrackingData();
-        LimelightUtility.LogTrackingData();
+        //LimelightUtility.LogTrackingData();
         setTimeout(5);
         //targetTurn = LimelightUtility.Camera3dTranslation_yaw;
         targetTurn = -LimelightUtility.TargetHorizontalOffset;

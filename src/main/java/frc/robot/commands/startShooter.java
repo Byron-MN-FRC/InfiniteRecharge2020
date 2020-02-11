@@ -11,6 +11,7 @@
 
 package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.BallIndexerConstants;
 import frc.robot.Robot;
 import frc.robot.subsystems.BallShooter;
 
@@ -47,7 +48,7 @@ public class startShooter extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.ballIndexer.runBelt();
+        Robot.ballIndexer.startIndexMotor(BallIndexerConstants.shootMotorSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
