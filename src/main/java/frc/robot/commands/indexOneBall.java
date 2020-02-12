@@ -50,15 +50,13 @@ public class indexOneBall extends Command {
         if (Robot.ballIndexer.ballPresent(1)){
             BallArrived = true; 
         }
-
-
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        // always check for timeout first or overrun on shooter.
-        if (isTimedOut() || Robot.ballIndexer.ballPresent(2)) return true;
+        // always check for timeout first.
+        if (isTimedOut()) return true;
 
         if (BallArrived){
             if (!Robot.ballIndexer.ballPresent(1)){
