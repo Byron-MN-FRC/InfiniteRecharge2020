@@ -127,6 +127,8 @@ climb = new Climb();
         if (autonomousCommand != null) autonomousCommand.cancel();
         Robot.driveTrain.motorConfig();
         Robot.driveTrain.zeroSensors();
+        Robot.ballIndexer.indexerRunning = false;
+        Robot.ballIndexer.resetCount();
     }
 
     /**

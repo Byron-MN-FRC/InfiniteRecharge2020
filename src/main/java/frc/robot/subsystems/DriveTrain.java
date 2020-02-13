@@ -338,7 +338,7 @@ tankDrive.setMaxOutput(1.0);
         pigeon.setStatusFramePeriod(PigeonIMU_StatusFrame.CondStatus_9_SixDeg_YPR, 5, Constants.kTimeoutMs);
 
         // artificial limit for testing
-        double max = 0.2;
+        double max = .5;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);

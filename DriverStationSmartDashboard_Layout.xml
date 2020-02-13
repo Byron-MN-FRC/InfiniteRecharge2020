@@ -113,7 +113,4 @@
 </dashboard>
 <live-window>
 </live-window>
-	<hidden field="Current"/>
-	<hidden field="Left Temp"/>
-	<hidden field="RPM"/>
 </xml>
