@@ -47,7 +47,7 @@ public class startAcquisition extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.ballIndexer.ballPresent(2)){
+        if (Robot.ballIndexer.pwrCellPresent(2)){
             //Don't enable aquisition if we are full
             cancel();
         } else {
@@ -58,7 +58,7 @@ public class startAcquisition extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return Robot.ballIndexer.ballPresent(2);
+        return Robot.ballIndexer.pwrCellPresent(2);
     }
 
     // Called once after isFinished returns true

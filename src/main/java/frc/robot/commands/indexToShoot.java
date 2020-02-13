@@ -46,7 +46,7 @@ public class indexToShoot extends Command {
     @Override
     protected void execute() {
         Robot.ballIndexer.startIndexMotor(BallIndexerConstants.indexMotorSpeed);
-        if (Robot.ballIndexer.ballPresent(2)){
+        if (Robot.ballIndexer.pwrCellPresent(2)){
             BallReady = true;
         }
     }

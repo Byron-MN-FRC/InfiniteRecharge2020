@@ -46,7 +46,7 @@ public class indexReverseOne extends Command {
     @Override
     protected void execute() {
         Robot.ballIndexer.startIndexMotor(BallIndexerConstants.reverseMotorSpeed);
-        if (Robot.ballIndexer.ballPresent(1)){
+        if (Robot.ballIndexer.pwrCellPresent(1)){
             indexOneBall idxCmd = new indexOneBall();
             idxCmd.start();
             cancel();
