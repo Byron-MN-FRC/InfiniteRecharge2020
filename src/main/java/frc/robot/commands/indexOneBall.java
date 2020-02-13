@@ -47,7 +47,7 @@ public class indexOneBall extends Command {
     @Override
     protected void execute() {
         Robot.ballIndexer.startIndexMotor(BallIndexerConstants.indexMotorSpeed);
-        if (Robot.ballIndexer.pwrCellPresent(1)){
+        if (Robot.ballIndexer.ballPresent(1)){
             BallArrived = true; 
         }
 
@@ -58,10 +58,10 @@ public class indexOneBall extends Command {
     @Override
     protected boolean isFinished() {
         // always check for timeout first or overrun on shooter.
-        if (isTimedOut() || Robot.ballIndexer.pwrCellPresent(2)) return true;
+        if (isTimedOut() || Robot.ballIndexer.ballPresent(2)) return true;
 
         if (BallArrived){
-            if (!Robot.ballIndexer.pwrCellPresent(1)){
+            if (!Robot.ballIndexer.ballPresent(1)){
                 Robot.ballIndexer.incrementPwrCellCount();
                 return true;
             }
