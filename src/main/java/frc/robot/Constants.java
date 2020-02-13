@@ -102,10 +102,10 @@ public class Constants {
 	public final static int kSlot_MotProf = SLOT_3;
 
 	// Current (amp) limit
-	public static final double currentLimit = 30;
+	public static final double currentLimit = 20;
 
 	// Threshold that must be exceeded for current limiting to occur
-	public static final double thresholdLimit = 20;
+	public static final double thresholdLimit = 30;
 
 	// How long the current has to be above the threshold to trigger limiting
 	public static final double thresholdTime = 0;
