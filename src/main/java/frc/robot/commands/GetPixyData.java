@@ -182,6 +182,7 @@ public class GetPixyData extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 
     private void logMethodCalltime(String method, Instant lastTimeStamp) {
