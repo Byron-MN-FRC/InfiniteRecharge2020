@@ -110,6 +110,23 @@ Children:
           name: Safety Enabled, validators: null, value: false}
       Base: Differential Drive
       Name: TankDrive
+    - Children: []
+      Properties:
+        Output Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id008 ['0', '1', '2', '3', '4', '5', '6', '7']
+          default: '0'
+          name: Output Channel (Solenoid)
+          validators: &id009 [Solenoid]
+          value: '6'
+        Output PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id010 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+          default: '0'
+          name: Output PCM (Solenoid)
+          validators: &id011 [Solenoid]
+          value: '10'
+      Base: Solenoid
+      Name: coolingSolenoidMotors
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -247,17 +264,16 @@ Children:
     - Children: []
       Properties:
         Output Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id010 ['0', '1', '2', '3', '4', '5', '6', '7']
+          choices: *id008
           default: '0'
           name: Output Channel (Solenoid)
-          validators: &id011 [Solenoid]
+          validators: *id009
           value: '5'
         Output PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id012 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+          choices: *id010
           default: '0'
           name: Output PCM (Solenoid)
-          validators: &id013 [Solenoid]
+          validators: *id011
           value: '10'
       Base: Solenoid
       Name: coolingSolenoidShooter
@@ -282,22 +298,22 @@ Children:
     - Children: []
       Properties:
         CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id008 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+          choices: &id012 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
             '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22',
             '23', '24', '25', '26', '27', '28', '29', '30', '31']
           default: '2'
           name: CAN ID
-          validators: &id009 [CANID]
+          validators: &id013 [CANID]
           value: '15'
       Base: Victor SPX
       Name: buddyWinchBack
     - Children: []
       Properties:
         CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id008
+          choices: *id012
           default: '2'
           name: CAN ID
-          validators: *id009
+          validators: *id013
           value: '12'
       Base: Victor SPX
       Name: buddyWinchFront
@@ -334,16 +350,16 @@ Children:
     - Children: []
       Properties:
         Output Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id010
+          choices: *id008
           default: '0'
           name: Output Channel (Solenoid)
-          validators: *id011
+          validators: *id009
           value: '0'
         Output PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id012
+          choices: *id010
           default: '0'
           name: Output PCM (Solenoid)
-          validators: *id013
+          validators: *id011
           value: '10'
       Base: Solenoid
       Name: buddyPiston
