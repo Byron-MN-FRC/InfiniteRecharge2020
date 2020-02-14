@@ -173,7 +173,12 @@ public class DriveTrain extends Subsystem {
         // syntax
 
         twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
-        tankDrive.arcadeDrive(y, -twist);
+        driveArchade(y, -twist);
+    }
+
+    
+    public void driveArcade(double forward, double twist){
+        tankDrive.arcadeDrive(forward, twist);
     }
 
     public void motorConfig() {
@@ -429,20 +434,6 @@ public class DriveTrain extends Subsystem {
         masterConfig.primaryPID.selectedFeedbackCoefficient = 0.5;
     }
 
-    public void driveToPowerCell(int xPos, int height) {
-        if (height != 999) {
-            twist = (double) xPos / 500;
-            if (height < 50)
-                y = .30;
-            else
-                y = 0;
-        } else {
-            twist = 0;
-            y = 0;
-        }
-        System.out.println(y);
-        tankDrive.arcadeDrive(y, twist);
-    }
 
     /** Deadband 5 percent, used on the gamepad --NEED TO USE */
     private double Deadband(double value) {
