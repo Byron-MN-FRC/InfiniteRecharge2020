@@ -137,5 +137,8 @@ climb = new Climb();
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        if (!driveTrain.pixyData.isRunning()) {
+            driveTrain.pixyData.start();
+        }
     }
 }

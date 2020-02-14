@@ -112,7 +112,12 @@ public class Constants {
 
 	// Pixy constants
 	public final static boolean pixyOnDashboard = true;
-	public final static boolean pixyDebug = true;
-	public final static boolean pixyLogTimes = true;
-
+	public final static boolean pixyDebug = false;
+	public final static boolean pixyLogTimes = false;
+	public final static double pixyAngleOfView = 45;  
+	public final static double pixyMaxWidth = 320;
+	public final static double pixyMaxHeight = 150;
+	public final static double pixyMaxapproachPower = 0.7;
+	public final static double pixyMinApproachPower = 0.2;
+	public final static double pixyMaxTurnPower = 1;
 }
