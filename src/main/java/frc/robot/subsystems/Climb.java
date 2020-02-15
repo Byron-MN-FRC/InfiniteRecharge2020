@@ -164,7 +164,7 @@ addChild("buddyPiston",buddyPiston);
 
     public void driveWithClimbJoystick(Joystick pJoystick) {
         if (!cMode){
-            System.out.println("Not raising climb hooks due to cMode");
+         //   System.out.println("Not raising climb hooks due to cMode");
             return;
         }
         double y = -pJoystick.getY();
