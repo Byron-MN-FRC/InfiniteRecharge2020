@@ -1,16 +1,17 @@
 <xml version="1.0">
 <dashboard>
-	<widget field="test45" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="44"/>
-	</widget>
 	<widget field="PixyTurnPower" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="228"/>
+		<location x="0" y="200"/>
 	</widget>
 	<widget field="PixyApproachPower" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="205"/>
+		<location x="0" y="39"/>
 	</widget>
-	<widget field="PixyData" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="55" y="136"/>
+	<widget field="PwrCellHeight" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="8" y="276"/>
+		<height>22</height>
+	</widget>
+	<widget field="PwrCellXPos" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="20" y="247"/>
 	</widget>
 	<widget field="Turn Distance Remaining" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="471" y="496"/>
@@ -119,28 +120,22 @@
 	<widget field="Pigeon Ready?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="217" y="479"/>
 	</widget>
-	<widget field="indexReverseOne" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="14" y="81"/>
+	<widget field="chasePowerCells" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="16" y="164"/>
+	</widget>
+	<widget field="PixyData" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="60" y="135"/>
 	</widget>
 	<widget field="Power Cells Indexed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="19" y="21"/>
-	</widget>
-	<widget field="PwrCellHeight" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="8" y="350"/>
-	</widget>
-	<widget field="PwrCellXPos" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="16" y="330"/>
-	</widget>
-	<widget field="chasePowerCells" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="8" y="170"/>
+		<location x="27" y="16"/>
 	</widget>
 </dashboard>
 <live-window>
 	<widget field="ControlPanel" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<location x="4" y="17"/>
+		<location x="26" y="11"/>
 	</widget>
 	<widget field="BallAcquisition" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<location x="13" y="27"/>
+		<location x="29" y="5"/>
 	</widget>
 	<widget field="BallShooter" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
 		<widget field="coolingSolenoidShooter" type="Solenoid" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalOutputController">
@@ -148,7 +143,7 @@
 			<height>25</height>
 			<width>184</width>
 		</widget>
-		<location x="11" y="23"/>
+		<location x="6" y="29"/>
 		<width>196</width>
 		<height>49</height>
 	</widget>
@@ -168,7 +163,7 @@
 			<height>22</height>
 			<width>133</width>
 		</widget>
-		<location x="16" y="1"/>
+		<location x="27" y="25"/>
 		<width>145</width>
 		<height>90</height>
 	</widget>
@@ -183,7 +178,7 @@
 			<height>22</height>
 			<width>120</width>
 		</widget>
-		<location x="25" y="0"/>
+		<location x="5" y="29"/>
 		<width>132</width>
 		<height>71</height>
 	</widget>
@@ -233,7 +228,7 @@
 			<height>45</height>
 			<width>309</width>
 		</widget>
-		<location x="24" y="17"/>
+		<location x="13" y="26"/>
 		<width>321</width>
 		<height>429</height>
 	</widget>
@@ -243,10 +238,11 @@
 			<height>22</height>
 			<width>111</width>
 		</widget>
-		<location x="14" y="30"/>
+		<location x="23" y="10"/>
 		<width>123</width>
 		<height>46</height>
 	</widget>
 </live-window>
-	<hidden field="Chase"/>
+	<hidden field="indexReverseOne"/>
+	<hidden field="test45"/>
 </xml>

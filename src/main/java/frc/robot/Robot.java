@@ -114,6 +114,7 @@ shifter = new Shifter();
         Robot.ballIndexer.resetCount();
         Robot.ballShooter.reinitializeShooter();
         Robot.shifter.reinitializeShifter();
+        Robot.ballAcquisition.reinitializeAquisition();
         // schedule the autonomous command (example)
    //     if (autonomousCommand != null) autonomousCommand.start();
             autonomousCommand = new AutoSelector();
@@ -143,6 +144,7 @@ shifter = new Shifter();
         Robot.driveTrain.reinitializeDriveTrain();
         Robot.ballShooter.reinitializeShooter();
         Robot.shifter.reinitializeShifter();
+        Robot.ballAcquisition.reinitializeAquisition();
     }
 
     /**
