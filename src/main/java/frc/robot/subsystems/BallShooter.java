@@ -132,6 +132,10 @@ addChild("coolingSolenoidShooter",coolingSolenoidShooter);
         coolingOn = false;
         timer = 0;
     }
+
+    public double getShooterRPM() {
+        return -shootMotor.getSelectedSensorVelocity() * 600 / Constants.kSensorUnitsPerRotation;
+    }
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
