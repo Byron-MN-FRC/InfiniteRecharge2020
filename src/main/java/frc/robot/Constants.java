@@ -117,7 +117,7 @@ public class Constants {
 	public final static double pixyAngleOfView = 45;  
 	public final static double pixyMaxWidth = 320;
 	public final static double pixyMaxHeight = 150;
-	public final static double pixyMaxapproachPower = 0.7;
+	public final static double pixyMaxapproachPower = 0.6;
 	public final static double pixyMinApproachPower = 0.2;
 	public final static double pixyMaxTurnPower = 1;
 
