@@ -59,11 +59,7 @@ public class driveStraightFeet extends Command {
     @Override
     protected boolean isFinished() {
         double m_encoderUnits = Constants.encodeUnitsToFeet * m_distanceInFeet;
-        if (Robot.driveTrain.atTarget(m_encoderUnits) || isTimedOut()) {
-            return true;
-        } else {
-            return false;
-        }
+        return (Robot.driveTrain.atTarget(m_encoderUnits) || isTimedOut()) 
     }
 
     // Called once after isFinished returns true
