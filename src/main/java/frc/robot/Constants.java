@@ -115,4 +115,7 @@ public class Constants {
 	public final static boolean pixyDebug = true;
 	public final static boolean pixyLogTimes = true;
 
+	public static final double encodeUnitsToFeet = 14177.65;
+
+
 }
