@@ -38,7 +38,7 @@ import frc.robot.Robot;
 import frc.robot.commands.driveWithJoyStick;
 import frc.robot.commands.getPixyData;
 import frc.robot.commands.shiftUp;
-import frc.robot.commands.shiftUp;
+
 
 /**
  *
@@ -195,8 +195,9 @@ public class DriveTrain extends Subsystem {
 
         twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
 
-        if (Robot.shifter.highGear = true) {
-            driveArcade(y / 2, -twist / 2);
+        if (Robot.shifter.highGear) {
+            tankDrive.arcadeDrive(y/2, -twist/2);
+
         } else {
             driveArcade(y, -twist);
         }
@@ -483,14 +484,15 @@ public class DriveTrain extends Subsystem {
 
     public boolean atTarget(double encoderUnits) {
         // fix it
-        double leftCurrentEncoderUnits = leftMaster.getSelectedSensorPosition(Constants.kPIDLoopIdx);
-        leftCurrentEncoderUnits = leftMaster.getSensorCollection().getIntegratedSensorPosition();
+        //double leftCurrentEncoderUnits = leftMaster.getSelectedSensorPosition(Constants.kPIDLoopIdx);
+        //leftCurrentEncoderUnits = leftMaster.getSensorCollection().getIntegratedSensorPosition();
         double rightCurrentEncoderUnits = rightMaster.getSelectedSensorPosition(Constants.kPIDLoopIdx);
         rightCurrentEncoderUnits = rightMaster.getSensorCollection().getIntegratedSensorPosition();
-        double remainingLeft = Math.abs(leftCurrentEncoderUnits - encoderUnits);
+        //double remainingLeft = Math.abs(leftCurrentEncoderUnits - encoderUnits);
         double remainingRight = Math.abs(rightCurrentEncoderUnits - encoderUnits);
-        if ((remainingRight < 1000) && (remainingLeft < 1000)) {
-            System.out.println("true");
+        //if ((remainingRight < 1000) && (remainingLeft < 1000)) {
+        if (remainingRight < 1000) {
+                System.out.println("true");
             return true;
         }
         return false;
@@ -512,7 +514,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public void autonomousLimiting() {
-        double max = 0.5;
+        double max = 1.0;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);

@@ -120,4 +120,9 @@ public class Constants {
 	public final static double pixyMaxapproachPower = 0.7;
 	public final static double pixyMinApproachPower = 0.2;
 	public final static double pixyMaxTurnPower = 1;
+
+
+	public static final double encodeUnitsToFeet = -22684.24;
+
+
 }
