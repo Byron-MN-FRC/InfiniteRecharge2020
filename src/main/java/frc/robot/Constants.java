@@ -35,7 +35,7 @@ public class Constants {
 	 * @link https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units-of-my-sensor
 	 */
 	public final static int kSensorUnitsPerRotation = 2048;
-
+	public static final int kSlotIdx = 0;
 	/**
 	 * Number of rotations to drive when performing Distance Closed Loop
 	 */
@@ -57,6 +57,7 @@ public class Constants {
 	 */
 	public final static double kNeutralDeadband = 0.001;
 
+	public static final double kTargetEncoderUnits = 263864;//3.5 rotations
 	/**
 	 * PID Gains may have to be adjusted based on the responsiveness of control
 	 * loop. kF: 1023 represents output value to Talon at 100%, 6800 represents
@@ -69,6 +70,7 @@ public class Constants {
 	public final static Gains kGains_Turning = new Gains(2.0, 0.0, 4.0, 0.0, 200, .1);
 	public final static Gains kGains_Velocit = new Gains(0.1, 0.0, 20.0, 1023.0 / 6800.0, 300, 0.50);
 	public final static Gains kGains_MotProf = new Gains(1.0, 0.0, 0.0, 1023.0 / 6800.0, 400, 1.00);
+	public static final Gains kGains = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
 
 	/*
 	 * Gains(kp, ki, kd, kf, izone, peak output);
@@ -117,5 +119,6 @@ public class Constants {
 
 	public static final double encodeUnitsToFeet = -22684.24;
 
+	
 
 }

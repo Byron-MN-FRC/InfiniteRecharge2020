@@ -81,7 +81,7 @@ addChild("jawSolenoid",jawSolenoid);
     }
 
     public void reinitializeAquisition() {
-        jawSolenoid.set(false);
+        jawSolenoid.set(true);
     }
     public void reverseAcquire(){
         acquireMotor.set(.8);
