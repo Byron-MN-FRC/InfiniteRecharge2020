@@ -491,14 +491,15 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
 
     public boolean atTarget(double encoderUnits) {
         // fix it
-        double leftCurrentEncoderUnits = leftMaster.getSelectedSensorPosition(Constants.kPIDLoopIdx);
-        leftCurrentEncoderUnits = leftMaster.getSensorCollection().getIntegratedSensorPosition();
+        //double leftCurrentEncoderUnits = leftMaster.getSelectedSensorPosition(Constants.kPIDLoopIdx);
+        //leftCurrentEncoderUnits = leftMaster.getSensorCollection().getIntegratedSensorPosition();
         double rightCurrentEncoderUnits = rightMaster.getSelectedSensorPosition(Constants.kPIDLoopIdx);
         rightCurrentEncoderUnits = rightMaster.getSensorCollection().getIntegratedSensorPosition();
-        double remainingLeft = Math.abs(leftCurrentEncoderUnits - encoderUnits);
+        //double remainingLeft = Math.abs(leftCurrentEncoderUnits - encoderUnits);
         double remainingRight = Math.abs(rightCurrentEncoderUnits - encoderUnits);
-        if ((remainingRight < 1000) && (remainingLeft < 1000)) {
-            System.out.println("true");
+        //if ((remainingRight < 1000) && (remainingLeft < 1000)) {
+        if (remainingRight < 1000) {
+                System.out.println("true");
             return true;
         }
         return false;
@@ -520,7 +521,7 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
     }
 
     public void autonomousLimiting() {
-        double max = 0.5;
+        double max = 1.0;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
