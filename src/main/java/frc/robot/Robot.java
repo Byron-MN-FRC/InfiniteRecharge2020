@@ -103,7 +103,12 @@ climb = new Climb();
  //       autonomousCommand = chooser.getSelected();
      
         Robot.driveTrain.motorConfig();
+        Robot.driveTrain.autonomousLimiting();
         Robot.driveTrain.zeroSensors();
+        Robot.driveTrain.reinitializeDriveTrain();
+        Robot.ballIndexer.reinitializeIndexer();
+        Robot.ballIndexer.resetCount();
+        Robot.ballShooter.reinitializeShooter();
         // schedule the autonomous command (example)
    //     if (autonomousCommand != null) autonomousCommand.start();
             autonomousCommand = new AutoSelector();
@@ -126,9 +131,12 @@ climb = new Climb();
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         Robot.driveTrain.motorConfig();
+        Robot.driveTrain.teleopLimiting();
         Robot.driveTrain.zeroSensors();
-        Robot.ballIndexer.indexerRunning = false;
+        Robot.ballIndexer.reinitializeIndexer();
         Robot.ballIndexer.resetCount();
+        Robot.driveTrain.reinitializeDriveTrain();
+        Robot.ballShooter.reinitializeShooter();
     }
 
     /**
