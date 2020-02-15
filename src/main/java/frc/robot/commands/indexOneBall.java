@@ -62,6 +62,7 @@ public class indexOneBall extends Command {
 
         if (BallArrived){
             if (!Robot.ballIndexer.ballPresent(1)){
+                Robot.ballIndexer.incrementPwrCellCount();
                 return true;
             }
         }
