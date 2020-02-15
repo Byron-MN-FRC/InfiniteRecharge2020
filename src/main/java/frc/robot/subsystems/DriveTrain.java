@@ -189,7 +189,7 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
 
         twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
         
-        if (Robot.shifter.highGear = true) {
+        if (Robot.shifter.highGear == true) {
             tankDrive.arcadeDrive(y/2, -twist/2);
         } else {
             tankDrive.arcadeDrive(y, -twist);
