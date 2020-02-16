@@ -60,12 +60,14 @@ public class driveStraightFeet extends Command {
     protected boolean isFinished() {
         double m_encoderUnits = Constants.encodeUnitsToFeet * m_distanceInFeet;
         return Robot.driveTrain.atTarget(m_encoderUnits) ;//|| isTimedOut();
+
         //return isTimedOut();
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.driveTrain.motorConfigFalcon();
     }
 
     // Called when another command which requires one or more of the same

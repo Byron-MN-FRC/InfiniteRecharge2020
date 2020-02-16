@@ -11,6 +11,7 @@
 
 package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.BallShooterConstants;
 import frc.robot.Robot;
 import frc.robot.subsystems.BallShooter;
 
@@ -51,7 +52,7 @@ public class hoodDown extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return Robot.ballShooter.getHoodEncoderUnits() < 1000;
+         return Robot.ballShooter.targetEncoder();
     }
 
     // Called once after isFinished returns true
