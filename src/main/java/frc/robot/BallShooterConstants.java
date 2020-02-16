@@ -5,7 +5,7 @@ package frc.robot;
 
 public class BallShooterConstants {
 	//hood  Constants 
-	public final static double hoodUpEncoderUnits = 5000;
+	public final static double kHoodDownEncoderUnits = 4000;
 
     public static final int kPIDLoopIdx = 0; // Check how it is done with talon
 

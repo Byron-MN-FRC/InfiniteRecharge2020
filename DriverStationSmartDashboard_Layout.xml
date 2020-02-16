@@ -1,5 +1,8 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Encoder Units" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="41"/>
+	</widget>
 	<widget field="Turn Distance Remaining" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="471" y="496"/>
 	</widget>
@@ -109,6 +112,12 @@
 	</widget>
 	<widget field="Pigeon Ready?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="217" y="479"/>
+	</widget>
+	<widget field="indexReverseOne" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="17" y="5"/>
+	</widget>
+	<widget field="Power Cells Indexed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="24" y="21"/>
 	</widget>
 </dashboard>
 <live-window>

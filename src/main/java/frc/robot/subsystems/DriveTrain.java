@@ -328,8 +328,8 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
         rightMaster.configClosedLoopPeriod(1, closedLoopTimeMs, Constants.kTimeoutMs);
 
         // Motion Magic Configs
-        _rightConfig.motionAcceleration = 2000; // (distance units per 100 ms) per second
-        _rightConfig.motionCruiseVelocity = 2000; // distance units per 100 ms
+        _rightConfig.motionAcceleration = 6000; // (distance units per 100 ms) per second
+        _rightConfig.motionCruiseVelocity = 8000; // distance units per 100 ms
 
         // APPLY the config settings
         leftMaster.configAllSettings(_leftConfig);
