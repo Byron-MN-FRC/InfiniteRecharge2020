@@ -155,14 +155,14 @@ hoodMotor = new WPI_TalonSRX(8);
         return false;
     }
     public void hoodUp(){
-        hoodMotor.set(ControlMode.MotionMagic, 0);
+        hoodMotor.set(ControlMode.MotionMagic, 650);
 
     }
     public void hoodDown(){
         hoodMotor.set(ControlMode.MotionMagic, BallShooterConstants.kHoodDownEncoderUnits);
     }
     public double getHoodEncoderUnits(){
-        return hoodMotor.getSelectedSensorPosition(0);
+        return hoodMotor.getSelectedSensorPosition(650);
     }
     public void stopHoodMotor(){
         hoodMotor.set(0);
@@ -206,8 +206,7 @@ hoodMotor = new WPI_TalonSRX(8);
                 BallShooterConstants.kTimeoutMs);
         /* Set acceleration and vcruise velocity - see documentation */
         hoodMotor.configMotionCruiseVelocity(150, BallShooterConstants.kTimeoutMs);
-        hoodMotor.configMotionAcceleration(150
-        , BallShooterConstants.kTimeoutMs);
+        hoodMotor.configMotionAcceleration(150, BallShooterConstants.kTimeoutMs);
 
         /* Zero the sensor */
         hoodMotor.setSelectedSensorPosition(0, BallShooterConstants.kPIDLoopIdx, BallShooterConstants.kTimeoutMs);
