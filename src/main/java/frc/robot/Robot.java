@@ -153,5 +153,6 @@ shifter = new Shifter();
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putBoolean("Hood Down",Robot.ballShooter.isLimitSwitchDown());
     }
 }
