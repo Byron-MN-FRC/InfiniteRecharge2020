@@ -135,6 +135,10 @@ beltMotor = new WPI_TalonSRX(11);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
+    public void setPwrCellCount(int ballCount) {
+        indexedBallCount = ballCount;
+    }
+    
     public int incrementPwrCellCount() {
         return ++indexedBallCount;
     }

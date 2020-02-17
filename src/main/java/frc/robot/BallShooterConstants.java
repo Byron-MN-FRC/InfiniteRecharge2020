@@ -3,6 +3,8 @@
  */
 package frc.robot;
 
+import java.util.TreeMap;
+
 public class BallShooterConstants {
 	//hood  Constants 
 	public final static double kHoodDownEncoderUnits = 4000;
@@ -32,5 +34,18 @@ public class BallShooterConstants {
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
 	public static final Gains kGains_hoodMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
+
+	// Map of targe area percentage to RMPs / Hood Encoder units
+	public static final TreeMap<Integer, double[]> targetPercent2ShooterParms = new TreeMap<Integer, double[]> () {
+
+		private static final long serialVersionUID = 1L;
+	
+        {	   // Target                             Hood
+               // Percentage                  RPMs   Encoder
+			put(  0,          new double[]  { 1000,  3000 } );
+			put( 10,  	      new double[]  { 2000,  3500 } );
+			put( 20,    	  new double[]  { 5000,  4000 } );
+			}};
+
 
 }

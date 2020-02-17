@@ -40,6 +40,7 @@ public class AutoIndexer extends Command {
     @Override
     protected void initialize() {
         setTimeout(5);
+        Robot.ballIndexer.setPwrCellCount(3); // Autonomous - user input future?
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -51,17 +52,19 @@ public class AutoIndexer extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return isTimedOut();
+        return isTimedOut() || Robot.ballIndexer.ballCount() == 0;
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.ballIndexer.stopIndexMotor();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

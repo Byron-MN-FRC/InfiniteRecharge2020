@@ -54,7 +54,7 @@ coolingSolenoidShooter = new Solenoid(10, 5);
 addChild("coolingSolenoidShooter",coolingSolenoidShooter);
 
         
-hoodMotor = new WPI_TalonSRX(8);
+hoodMotor = new WPI_TalonSRX(7);
 
 
         
@@ -98,7 +98,23 @@ hoodMotor = new WPI_TalonSRX(8);
     public void fireMotor() {
         shootMotor.set(-.80);
     }
+    public void fireMotor(double rpms, double hoodEncoderUnits) {
+        double velocityPer100ms = rpms / 600 * Constants.kSensorUnitsPerRotation;
+        shootMotor.set(ControlMode.Velocity, velocityPer100ms);
+        hoodMotor.set(ControlMode.Position, hoodEncoderUnits);
+    }
 
+    public boolean shooterSpunUp(double rpms, double hoodEncoderUnits) {
+        double currentRPMs = Math.abs(shootMotor.getSelectedSensorVelocity() * 600 / Constants.kSensorUnitsPerRotation);
+        double currentEncoderUnits = shootMotor.getSelectedSensorPosition(0);
+        if (Math.abs(currentRPMs - rpms) < 190 ) { // close enough to target
+            if (Math.abs(currentEncoderUnits - hoodEncoderUnits) < 190 ) {
+                return true;
+            }
+        }
+        return false;
+    }
+ 
     public void stopShooter() {
         shootMotor.set(0);
     }
@@ -136,6 +152,7 @@ hoodMotor = new WPI_TalonSRX(8);
             coolingOn = false;
         }
     }
+    
 
     public void reinitializeShooter() {
         coolingSolenoidShooter.set(false);
@@ -155,11 +172,13 @@ hoodMotor = new WPI_TalonSRX(8);
         return false;
     }
     public void hoodUp(){
-        hoodMotor.set(ControlMode.MotionMagic, 0);
+        hoodMotor.set(ControlMode.MotionMagic, BallShooterConstants.kHoodDownEncoderUnits);
+  //      hoodMotor.set(ControlMode.MotionMagic, 0);
 
     }
     public void hoodDown(){
-        hoodMotor.set(ControlMode.MotionMagic, BallShooterConstants.kHoodDownEncoderUnits);
+  //      hoodMotor.set(ControlMode.MotionMagic, BallShooterConstants.kHoodDownEncoderUnits);
+          hoodMotor.set(ControlMode.MotionMagic, 0);
     }
     public double getHoodEncoderUnits(){
         return hoodMotor.getSelectedSensorPosition(0);
