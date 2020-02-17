@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class BallShooterConstants {
 	//hood  Constants 
-	public final static double kHoodUpEncoderUnits = -1000;//4000
+	public final static double kHoodUpEncoderUnits = -3500;//4000
 
     public static final int kPIDLoopIdx = 0; // Check how it is done with talon
 
