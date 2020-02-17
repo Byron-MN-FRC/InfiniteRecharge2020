@@ -141,6 +141,8 @@ hoodMotor = new WPI_TalonSRX(8);
         coolingSolenoidShooter.set(false);
         coolingOn = false;
         timer = 0;
+        hoodMotor.setSelectedSensorPosition(0, BallShooterConstants.kPIDLoopIdx, BallShooterConstants.kTimeoutMs);
+
     }
 
     public double getShooterRPM() {
@@ -149,17 +151,17 @@ hoodMotor = new WPI_TalonSRX(8);
     }
     public Boolean targetEncoder() {
         double currentEncoderUnits = hoodMotor.getSelectedSensorPosition(0);
-        if (Math.abs(currentEncoderUnits - BallShooterConstants.kHoodDownEncoderUnits)  < 190) {
+        if (Math.abs(currentEncoderUnits - BallShooterConstants.kHoodUpEncoderUnits)  < 190) {
             return true;
         }
         return false;
     }
     public void hoodUp(){
-        hoodMotor.set(ControlMode.MotionMagic, 0);
+        hoodMotor.set(ControlMode.MotionMagic, BallShooterConstants.kHoodUpEncoderUnits);
 
     }
     public void hoodDown(){
-        hoodMotor.set(ControlMode.MotionMagic, BallShooterConstants.kHoodDownEncoderUnits);
+        hoodMotor.set(ControlMode.MotionMagic, 0);
     }
     public double getHoodEncoderUnits(){
         return hoodMotor.getSelectedSensorPosition(0);
