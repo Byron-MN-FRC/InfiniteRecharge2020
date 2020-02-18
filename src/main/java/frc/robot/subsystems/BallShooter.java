@@ -105,6 +105,24 @@ addChild("limitSwitchDown",limitSwitchDown);
         shootMotor.set(-.85);
     }
 
+    public void fireMotor(double rpms, double hoodEncoderUnits) {
+        double velocityPer100ms = rpms / 600 * Constants.kSensorUnitsPerRotation;
+        shootMotor.set(ControlMode.Velocity, velocityPer100ms);
+        hoodMotor.set(ControlMode.Position, hoodEncoderUnits);
+    }
+
+    public boolean shooterSpunUp(double rpms, double hoodEncoderUnits) {
+        double currentRPMs = Math.abs(shootMotor.getSelectedSensorVelocity() * 600 / Constants.kSensorUnitsPerRotation);
+        double currentEncoderUnits = shootMotor.getSelectedSensorPosition(0);
+        if (Math.abs(currentRPMs - rpms) < 190 ) { // close enough to target
+           // if (Math.abs(currentEncoderUnits - hoodEncoderUnits) < 190 ) {
+                return true;
+           // }
+        }
+        return false;
+    }
+
+
     public void stopShooter() {
         shootMotor.set(0);
     }
