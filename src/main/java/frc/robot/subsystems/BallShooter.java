@@ -108,6 +108,7 @@ addChild("limitSwitchDown",limitSwitchDown);
     public void fireMotor(double rpms, double hoodEncoderUnits) {
         double velocityPer100ms = rpms / 600 * Constants.kSensorUnitsPerRotation;
         shootMotor.set(ControlMode.Velocity, velocityPer100ms);
+        System.out.println("fire motor : " + rpms + " hoodenc" + hoodEncoderUnits);
         hoodMotor.set(ControlMode.Position, hoodEncoderUnits);
     }
 

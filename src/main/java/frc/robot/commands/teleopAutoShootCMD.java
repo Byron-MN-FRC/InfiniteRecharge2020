@@ -59,6 +59,7 @@ public class teleopAutoShootCMD extends Command {
         System.out.println("HE:" + hoodEncoderUnits);
         numberOfBalls = Robot.ballIndexer.ballCount(); 
         Robot.ballShooter.fireMotor(rpms,hoodEncoderUnits);
+        setTimeout(5);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -74,7 +75,8 @@ public class teleopAutoShootCMD extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return Robot.ballIndexer.ballCount() <= 0;
+        return isTimedOut();
+      //  return Robot.ballIndexer.ballCount() <= 0;
     }
 
     // Called once after isFinished returns true
