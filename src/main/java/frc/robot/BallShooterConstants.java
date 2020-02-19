@@ -33,6 +33,7 @@ public class BallShooterConstants {
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
 	public static final Gains kGains_hoodMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
+	public static final Gains kGains_shootMotor = new Gains(0.1, 0.001, 0.0, 0.49, 0, 1.0);
 
 
 	//
@@ -40,12 +41,20 @@ public class BallShooterConstants {
 		private static final long serialVersionUID = 1L;
 		{	   //target							Hood
 			   //percentage				  RPMs	Encoder
-			put( 198, new double[] { 1000, 3000 });
-			put( 129, new double[] { 2000, 3500 });
-			put( 78, new double[] { 5000, 4000 });
+			put( 198, new double[] { -1000, 3000 });
+			put( 129, new double[] { -3500, 3500 });
+			put( 78, new double[] { -5000, 4000 });
 
 		}};
-	//example usage:
+	
+	
+	/**
+	 * How many sensor units per rotation. Using Talon FX Integrated Encoder.
+	 * 
+	 * @link https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units-of-my-sensor
+	 */
+	public final static int kSensorUnitsPerRotation = 2048;
+		//example usage:
 	/*public static void main(String[] args) throws Exception {
 		double ta = 150;
 		Integer key = (int)ta;

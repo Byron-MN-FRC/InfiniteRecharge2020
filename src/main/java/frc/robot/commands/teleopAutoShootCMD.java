@@ -51,7 +51,7 @@ public class teleopAutoShootCMD extends Command {
             area = LimelightUtility.TargetAreaPercentage * 100; 
         } else {
             System.out.println("No target");
-            area = 10000;
+            area = 129;
         }  
         rpms = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[0];
         hoodEncoderUnits = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[1];
@@ -59,7 +59,7 @@ public class teleopAutoShootCMD extends Command {
         System.out.println("HE:" + hoodEncoderUnits);
         numberOfBalls = Robot.ballIndexer.ballCount(); 
         Robot.ballShooter.fireMotor(rpms,hoodEncoderUnits);
-        setTimeout(5);
+        setTimeout(10);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -75,8 +75,7 @@ public class teleopAutoShootCMD extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return isTimedOut();
-      //  return Robot.ballIndexer.ballCount() <= 0;
+       return isTimedOut();
     }
 
     // Called once after isFinished returns true
