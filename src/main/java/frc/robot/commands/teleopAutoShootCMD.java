@@ -66,8 +66,12 @@ public class teleopAutoShootCMD extends Command {
     @Override
     protected void execute() {
         if (Robot.ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
+            // Should call command to do this instead of calling directly in.  
+            // Calling a command with do an appropriate interupt instead of blindly 
+            // taking control.  The command would simply start the motor and exit
             Robot.ballIndexer.startIndexMotor(BallIndexerConstants.indexMotorSpeed);
         } else {
+            // See comment above.  Command would simply stop the motor and exit.
             Robot.ballIndexer.stopIndexMotor();
        }
     }
