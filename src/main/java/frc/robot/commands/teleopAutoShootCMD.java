@@ -58,14 +58,14 @@ public class teleopAutoShootCMD extends Command {
         System.out.println("RPMs:" +  rpms);
         System.out.println("HE:" + hoodEncoderUnits);
         numberOfBalls = Robot.ballIndexer.ballCount(); 
-        Robot.ballShooter.fireMotor(rpms,hoodEncoderUnits);
+        Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         setTimeout(10);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.ballShooter.shooterSpunUp(rpms, hoodEncoderUnits)) {
+        if (Robot.ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
             Robot.ballIndexer.startIndexMotor(BallIndexerConstants.indexMotorSpeed);
         } else {
             Robot.ballIndexer.stopIndexMotor();
