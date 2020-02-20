@@ -84,6 +84,7 @@ public class BallShooterConstants {
 		}
 		}*/
 	public static final boolean debug = true;
+	public static final double teleopAutoShootCmdTimeout = 20;
 
 	}
 
