@@ -4,9 +4,6 @@
 package frc.robot;
 
 public class Constants {
-	// Ball Shooter constants
-	public static final boolean kEnableCurrentLimiting_BS = true;
-
 	// Drive Train constants
 	public static final boolean kDebug_DT = true;
 	public static final boolean kEnableCurrentLimiting_DT = true;
@@ -103,22 +100,10 @@ public class Constants {
 	public final static int kSlot_Velocit = SLOT_2;
 	public final static int kSlot_MotProf = SLOT_3;
 
-	// Current (amp) limit
-	public static final double currentLimit = 20;
-
-	// Threshold that must be exceeded for current limiting to occur
-	public static final double thresholdLimit = 30;
-
-	// How long the current has to be above the threshold to trigger limiting
-	public static final double thresholdTime = 0;
-
 	// Pixy constants
 	public final static boolean pixyOnDashboard = true;
 	public final static boolean pixyDebug = true;
 	public final static boolean pixyLogTimes = true;
 
 	public static final double encodeUnitsToFeet = -22684.24;
-
-	
-
 }

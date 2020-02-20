@@ -7,6 +7,22 @@ import java.util.TreeMap;
 public class BallShooterConstants {
 	//hood  Constants 
 	public final static double kHoodUpEncoderUnits = 2000;//-3500;//4000
+	public final static double kHoodPositionTolerance = 190;
+	
+	// Shoot motor Constants
+	public final static double kShootMotorRPMTolerance = 50;//rpms
+	public static final boolean kEnableCurrentLimiting_BS = true;
+
+	// Current (amp) limit
+	public static final double currentLimit = 20;
+
+	// Threshold that must be exceeded for current limiting to occur
+	public static final double thresholdLimit = 30;
+
+	// How long the current has to be above the threshold to trigger limiting
+	public static final double thresholdTime = 0;
+
+
 
     public static final int kPIDLoopIdx = 0; // Check how it is done with talon
 
@@ -48,6 +64,7 @@ public class BallShooterConstants {
 		}};
 	
 	
+	
 	/**
 	 * How many sensor units per rotation. Using Talon FX Integrated Encoder.
 	 * 
@@ -66,6 +83,7 @@ public class BallShooterConstants {
 			System.out.println("HE: " + targetPercent2ShooterParms.floorEntry(key).getValue()[1]);
 		}
 		}*/
+	public static final boolean debug = true;
 
 	}
 
