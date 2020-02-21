@@ -40,6 +40,10 @@ public class AutoIndexer extends Command {
     @Override
     protected void initialize() {
         setTimeout(5);
+        // we start with 3 balls in the robot on autonomous
+        Robot.ballIndexer.incrementPwrCellCount();
+        Robot.ballIndexer.incrementPwrCellCount();
+        Robot.ballIndexer.incrementPwrCellCount();
     }
 
     // Called repeatedly when this Command is scheduled to run
