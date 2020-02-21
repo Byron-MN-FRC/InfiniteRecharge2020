@@ -88,5 +88,17 @@ public class BallShooterConstants {
 	public static final double kLoopsToSettle = 10;
 	public static final int kErrThreshold = 50;
 
+	/**
+	 * Position the hood is moved to when idleing.  This should be 0 or stowed so that we can drive under
+	 * the control panel when we are not shooting.  
+	 */
+	public static final double hoodIdlePosition = 0;
+	
+	/**
+	 * Velocity in RPMs that the robot should idle at when not using the shooter.  This is for 
+	 * conservation of energy and time so that we don't need to spin up each time we try to shoot.
+	 */
+	public static final double shootIdleVelocity = 0;
+
 	}
 
