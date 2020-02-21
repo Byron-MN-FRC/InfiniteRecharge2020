@@ -49,7 +49,7 @@ public class BallShooterConstants {
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
 	public static final Gains kGains_hoodMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
-	public static final Gains kGains_shootMotor = new Gains(0.1, 0.001, 0.0, 0.49, 0, 1.0);
+	public static final Gains kGains_shootMotor = new Gains(0.07, 0.001, 0.0, 0.049, 0, 1.0);
 
 
 	//
@@ -85,6 +85,8 @@ public class BallShooterConstants {
 		}*/
 	public static final boolean debug = true;
 	public static final double teleopAutoShootCmdTimeout = 5;
+	public static final double kLoopsToSettle = 10;
+	public static final int kErrThreshold = 50;
 
 	}
 
