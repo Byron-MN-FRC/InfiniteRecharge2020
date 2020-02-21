@@ -114,9 +114,9 @@ public class BallShooter extends Subsystem {
 
         toConsole("prepareToShoot: ShootTgtRpm=" + rpms + " Err=" + 
             velocityPer100msToRpm(shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx)));
-        toConsole("prepareToShoot: ShootTarget=" + velocityPer100ms + " Err=" + 
+        toConsole("--------------: ShootTarget=" + velocityPer100ms + " Err=" + 
             shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
-        toConsole("                HoodTarget=" + hoodEncoderUnits + " Err=" + 
+        toConsole("--------------: HoodTarget=" + hoodEncoderUnits + " Err=" + 
             hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
     }
 
