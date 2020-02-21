@@ -60,9 +60,8 @@ public class teleopAutoShootCMD extends Command {
         }  
         rpms = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[0];
         hoodEncoderUnits = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[1];
-        System.out.println("RPMs:" +  rpms);
-        System.out.println("HE:" + hoodEncoderUnits);
-        numberOfBalls = Robot.ballIndexer.ballCount(); 
+
+g        numberOfBalls = Robot.ballIndexer.ballCount(); 
         //Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
         indexBeltRunner = new runIndexBelt();
