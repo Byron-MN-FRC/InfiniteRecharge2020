@@ -36,6 +36,7 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.commands.driveWithJoyStick;
 import frc.robot.commands.shiftUp;
+import frc.robot.ThrottleLookup;
 
 /**
  *
@@ -190,8 +191,12 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
         twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
         
         if (Robot.shifter.highGear == true) {
-            tankDrive.arcadeDrive(y/2, -twist/2);
+            y = ThrottleLookup.calcJoystickCorrection("HighGearRamp", y);
+            twist = ThrottleLookup.calcJoystickCorrection("HighGearTurn", twist);
+            tankDrive.arcadeDrive(y, -twist);
         } else {
+            y = ThrottleLookup.calcJoystickCorrection("LowGearRamp", y);
+            twist = ThrottleLookup.calcJoystickCorrection("LowGearTurn", twist);
             tankDrive.arcadeDrive(y, -twist);
         }
         
