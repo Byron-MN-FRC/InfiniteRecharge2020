@@ -73,7 +73,6 @@ public class teleopAutoShootCMD extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         if (Robot.ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
             // Should call command to do this instead of calling directly in.  
             // Calling a command with do an appropriate interupt instead of blindly 
