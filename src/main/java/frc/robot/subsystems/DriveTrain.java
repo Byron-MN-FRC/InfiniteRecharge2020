@@ -61,8 +61,12 @@ private Solenoid coolingSolenoidMotors;
     private double y = 0;
     private double twist = 0;
     private double timer = 0;
-    TalonFXInvertType _rightInvert = TalonFXInvertType.CounterClockwise; // Same as invert = "false"
-    TalonFXInvertType _leftInvert = TalonFXInvertType.Clockwise; // Same as invert = "true"
+    //Comp robot
+    // TalonFXInvertType _rightInvert = TalonFXInvertType.CounterClockwise; // Same as invert = "false"
+    // TalonFXInvertType _leftInvert = TalonFXInvertType.Clockwise; // Same as invert = "true"
+    //test robot
+    TalonFXInvertType _leftInvert = TalonFXInvertType.CounterClockwise; // Same as invert = "false"
+    TalonFXInvertType _rightInvert = TalonFXInvertType.Clockwise; // Same as invert = "true"
     TalonFXConfiguration _rightConfig = new TalonFXConfiguration();
     TalonFXConfiguration _leftConfig = new TalonFXConfiguration();
     private boolean coolingOn = false; 
@@ -378,9 +382,9 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
            //Set Max output of motors
     double max = 0.25;
     leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-    // leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+    leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
     rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
-    //rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+    rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
 
     }
 

@@ -49,27 +49,23 @@ public class AutoSelector extends CommandGroup {
 
         //addParallel(new AutoSpinup());
         addSequential(new driveStraightFeet(7));
-        addSequential(new autoTurn(-80));
+        addSequential(new autoTurn(-67));
         //addSequential(new AutoLimeLightTurn());
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
-        addSequential(new autoTurn(80));
-        addSequential(new driveStraightFeet(6.5));
+        addSequential(new autoTurn(67));
+        addSequential(new driveStraightFeet(7.1));
       } else if (startingPosition.toUpperCase().equals("M")) {
 
         //addParallel(new AutoSpinup());
-        addSequential(new autoTurn(-35));
-        addSequential(new driveStraightFeet(10));
-        addSequential(new autoTurn(155));
-        addSequential(new driveStraightFeet(5));
-        addSequential(new autoTurn(160));
-        //addSequential(new autoTurn(-90));
+        addSequential(new autoTurn(-10));
         //addSequential(new AutoLimeLightTurn());
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
-        //addSequential(new autoTurn(-60));
         //addParallel(new startAcquisition());
-        //addSequential(new driveStraightFeet(2.5));
+        addSequential(new autoTurn(105));
+        addSequential(new driveStraightFeet(7.5));
+        
     }else if (startingPosition.toUpperCase().equals("R")) {
 
         //addParallel(new AutoSpinup());
@@ -84,7 +80,6 @@ public class AutoSelector extends CommandGroup {
     }
 
 
-}
 
 }
-
+}
