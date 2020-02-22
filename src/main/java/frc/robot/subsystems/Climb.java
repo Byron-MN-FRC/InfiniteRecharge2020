@@ -186,7 +186,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
             return;
         }
         double y = -pJoystick.getY();
-        hookMotor.set(ControlMode.PercentOutput, -y);
+        hookMotor.set(ControlMode.PercentOutput, y);
     }
 
     public void motorConfig() {
