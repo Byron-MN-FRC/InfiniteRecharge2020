@@ -43,6 +43,8 @@ public class driveStraightFeet extends Command {
     @Override
     protected void initialize() {
         setTimeout(5);
+        Robot.driveTrain.motorConfigFalcon();
+        Robot.driveTrain.zeroSensors();
     }
 
     // Called repeatedly when this Command is scheduled to run
