@@ -44,7 +44,6 @@ public class runIndexBelt extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        System.out.println("Running belt motor");
         Robot.ballIndexer.startIndexMotor(BallIndexerConstants.indexMotorSpeed);
     }
 

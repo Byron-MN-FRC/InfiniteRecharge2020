@@ -49,17 +49,19 @@ public class BallShooterConstants {
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
 	public static final Gains kGains_hoodMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
-	public static final Gains kGains_shootMotor = new Gains(0.07, 0.001, 0.0, 0.049, 0, 1.0);
+//	public static final Gains kGains_shootMotor = new Gains(0.07, 0.001, 0.0, 0.049, 0, 1.0);
+	public static final Gains kGains_shootMotor = new Gains(0.05, 0.001, 0.0, 0.049, 0, 1.0);
 
 
 	//
 	public static final TreeMap<Integer, double[]> targetPercent2ShooterParms = new TreeMap<Integer, double[]>() {
 		private static final long serialVersionUID = 1L;
-		{	   //target							Hood
-			   //percentage				  RPMs	Encoder
-			put( 198, new double[] { -1000, 3000 });
-			put( 129, new double[] { -3500, 3500 });
-			put( 78, new double[] { -5000, 4000 });
+		{	   //target						Hood
+			   //percentage			RPMs	Encoder
+			put( 200, new double[] { -3500, 3000 });
+			put( 75, new double[] { -4300, 3500 });
+			put( 0, new double[] { -1000, 3500 });
+			// put( 78, new double[] { -5000, 4000 });
 
 		}};
 	
@@ -84,9 +86,9 @@ public class BallShooterConstants {
 		}
 		}*/
 	public static final boolean debug = true;
-	public static final double teleopAutoShootCmdTimeout = 5;
+	public static final double teleopAutoShootCmdTimeout = 10;
 	public static final double kLoopsToSettle = 10;
-	public static final int kErrThreshold = 50;
+	public static final int kErrThreshold = 100;
 
 	/**
 	 * Position the hood is moved to when idleing.  This should be 0 or stowed so that we can drive under

@@ -56,7 +56,7 @@ public class teleopAutoShootCMD extends Command {
             area = LimelightUtility.TargetAreaPercentage * 100; 
         } else {
             System.out.println("No target");
-            area = 198;
+            area = 100;
         }  
         rpms = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[0];
         hoodEncoderUnits = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[1];
@@ -78,10 +78,11 @@ public class teleopAutoShootCMD extends Command {
             // taking control.  The command would simply start the motor and exit
             //Robot.ballShooter.startBelt();
             if (!indexBeltRunner.isRunning()) {
+                System.out.println("Running belt motor");
                 indexBeltRunner.start();
             }
         } else {
-            if (indexBeltRunner.isRunning()) {
+            if (!Robot.ballShooter.isWithinThreshold() && indexBeltRunner.isRunning()) {
                 indexBeltRunner.cancel();
             }
        }
