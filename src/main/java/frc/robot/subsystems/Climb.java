@@ -77,19 +77,11 @@ addChild("buddyPiston",buddyPiston);
 
         
 rightBuddyServo = new Servo(0);
-<<<<<<< HEAD
 addChild("RightBuddyServo",rightBuddyServo);
 
         
 leftBuddyServo = new Servo(1);
 addChild("LeftBuddyServo",leftBuddyServo);
-=======
-addChild("rightBuddyServo",rightBuddyServo);
-
-        
-leftBuddyServo = new Servo(1);
-addChild("leftBuddyServo",leftBuddyServo);
->>>>>>> a4eb33cc34abac5a11bb147b8f6873ffbf2a5b94
 
         
 
