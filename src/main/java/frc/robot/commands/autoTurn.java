@@ -42,6 +42,8 @@ public class autoTurn extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.driveTrain.motorConfigFalcon();
+        Robot.driveTrain.zeroSensors();
     }
 
     // Called repeatedly when this Command is scheduled to run

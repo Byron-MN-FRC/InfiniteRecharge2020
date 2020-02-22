@@ -4,9 +4,6 @@
 package frc.robot;
 
 public class Constants {
-	// Ball Shooter constants
-	public static final boolean kEnableCurrentLimiting_BS = true;
-
 	// Drive Train constants
 	public static final boolean kDebug_DT = true;
 	public static final boolean kEnableCurrentLimiting_DT = true;
@@ -34,7 +31,8 @@ public class Constants {
 	 * 
 	 * @link https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units-of-my-sensor
 	 */
-	public final static int kSensorUnitsPerRotation = 2048;
+	public final static int kSensorUnitsPerRotation = 2048;//Real Robot
+	// public final static int kSensorUnitsPerRotation = 4096;//Fake Robot
 	public static final int kSlotIdx = 0;
 	/**
 	 * Number of rotations to drive when performing Distance Closed Loop
@@ -67,7 +65,7 @@ public class Constants {
 	 * kP kI kD kF Iz PeakOut
 	 */
 	public final static Gains kGains_Distanc = new Gains(0.1, 0.0, 0.0, 0.0, 100, 0.50);
-	public final static Gains kGains_Turning = new Gains(2.0, 0.0, 4.0, 0.0, 200, 0.1);
+	public final static Gains kGains_Turning = new Gains(2.0, 0.0, 4.0, 0.0, 200, 0.4);
 	public final static Gains kGains_Velocit = new Gains(0.1, 0.0, 20.0, 1023.0 / 6800.0, 300, 0.50);
 	public final static Gains kGains_MotProf = new Gains(1.0, 0.0, 0.0, 1023.0 / 6800.0, 400, 1.00);
 	public static final Gains kGains = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
@@ -103,22 +101,13 @@ public class Constants {
 	public final static int kSlot_Velocit = SLOT_2;
 	public final static int kSlot_MotProf = SLOT_3;
 
-	// Current (amp) limit
-	public static final double currentLimit = 20;
-
-	// Threshold that must be exceeded for current limiting to occur
-	public static final double thresholdLimit = 30;
-
-	// How long the current has to be above the threshold to trigger limiting
-	public static final double thresholdTime = 0;
-
 	// Pixy constants
 	public final static boolean pixyOnDashboard = true;
 	public final static boolean pixyDebug = true;
 	public final static boolean pixyLogTimes = true;
 
-	public static final double encodeUnitsToFeet = -22684.24;
-
-	
-
+	public static final double encodeUnitsToFeet = -22684.24;//Real robot
+	// public static final double encodeUnitsToFeet = 14177.65;//Fake robot
+	//Auto stuff
+	public static final String autoPostion = "Starting Position (L, M, R)";  
 }
