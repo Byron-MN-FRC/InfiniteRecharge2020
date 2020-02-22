@@ -145,6 +145,7 @@ shifter = new Shifter();
         Robot.ballShooter.reinitializeShooter();
         Robot.shifter.reinitializeShifter();
         Robot.ballAcquisition.reinitializeAquisition();
+        Robot.climb.reInitializeClimb();
     }
 
     /**
