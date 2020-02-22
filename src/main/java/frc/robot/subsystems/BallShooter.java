@@ -114,7 +114,7 @@ addChild("limitSwitchDown",limitSwitchDown);
     public void fireMotor() {
         toConsoleln("fireMotor() called");
         // this is dangerous as we are not looking at the state of the hood
-        // shootMotor.set(-.85);
+        shootMotor.set(-.85);
     }
 
     /**
@@ -140,17 +140,20 @@ addChild("limitSwitchDown",limitSwitchDown);
         final double velocityPer100ms = rpmToVelocityPer100ms(rpms);
 
         // issue set commands on motors to set velocity and position.
-        hoodMotor.set(ControlMode.Position, hoodEncoderUnits);
+        //hoodMotor.set(ControlMode.Position, hoodEncoderUnits);
         shootMotor.set(ControlMode.Velocity, velocityPer100ms);
 
         // report debugging information 
         if (++loop >= 15) {
             toConsoleln("ShootTarget=" + rpmToVelocityPer100ms(rpms) + " Cur="
                     + shootMotor.getSelectedSensorVelocity(BallShooterConstants.kPIDLoopIdx) + " Err="
-                    + shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx));
+                    + shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) +
+                     "In Threshold " + isWithinThreshold());
         }
 
-        return isWithinThreshold() && hoodAtPosition();
+        //return isWithinThreshold() && hoodAtPosition();        
+        return isWithinThreshold() ;
+
     }
 
     public void stopShooter() {
@@ -373,16 +376,21 @@ addChild("limitSwitchDown",limitSwitchDown);
      * 
      * @return - true if it has settled, otherwise false.
      */
-    private boolean isWithinThreshold() {
+    public boolean isWithinThreshold() {
         /* Check if closed loop error is within the threshld */
+        if (shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) == 0) {
+            _withinThresholdLoops = 0;
+            return false;
+        }
+
         if (shootMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx) < +BallShooterConstants.kErrThreshold
                 && shootMotor
                         .getClosedLoopError(BallShooterConstants.kPIDLoopIdx) > -BallShooterConstants.kErrThreshold) {
             ++_withinThresholdLoops;
-            toConsoleln("incrementing threshold loops: " + _withinThresholdLoops);
+            //toConsoleln("incrementing threshold loops: " + _withinThresholdLoops);
         } else {
             _withinThresholdLoops = 0;
-            toConsoleln("restart threshold loops: " + _withinThresholdLoops);
+            //toConsoleln("restart threshold loops: " + _withinThresholdLoops);
         }
         return (_withinThresholdLoops > BallShooterConstants.kLoopsToSettle);
     }

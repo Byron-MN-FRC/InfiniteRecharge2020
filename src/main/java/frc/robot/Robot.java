@@ -155,5 +155,10 @@ shifter = new Shifter();
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         SmartDashboard.putBoolean("Hood Down",Robot.ballShooter.isLimitSwitchDown());
+        boolean targetAcquired = LimelightUtility.ValidTargetFound();
+        LimelightUtility.RefreshTrackingData();
+        SmartDashboard.putBoolean("Target Acquired", targetAcquired);
+        SmartDashboard.putNumber("Target Area", LimelightUtility.TargetAreaPercentage);
+
     }
 }
