@@ -34,7 +34,8 @@ public class Constants {
 	 * 
 	 * @link https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units-of-my-sensor
 	 */
-	public final static int kSensorUnitsPerRotation = 2048;
+	//public final static int kSensorUnitsPerRotation = 2048;//Real Robot
+	public final static int kSensorUnitsPerRotation = 4096;//Fake Robot
 	public static final int kSlotIdx = 0;
 	/**
 	 * Number of rotations to drive when performing Distance Closed Loop
@@ -117,8 +118,9 @@ public class Constants {
 	public final static boolean pixyDebug = true;
 	public final static boolean pixyLogTimes = true;
 
-	public static final double encodeUnitsToFeet = -22684.24;
-
-	
+	//public static final double encodeUnitsToFeet = -22684.24;//Real robot
+	public static final double encodeUnitsToFeet = 14177.65;//Fake robot
+	//Auto stuff
+	public static final String autoPostion = "Starting Position (L, M, R)";  
 
 }
