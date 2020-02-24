@@ -75,12 +75,12 @@ public class teleopAutoShootCMD extends Command {
     protected void execute() {
         if (Robot.ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
             if (!indexBeltRunner.isRunning()) {
-                System.out.println("Running belt motor");
+                System.out.println("teleopAutoShootCMD is Running belt motor");
                 indexBeltRunner.start();
             }
         } else {
             if (indexBeltRunner.isRunning()) {
-                System.out.println("cancelling belt motor");
+                System.out.println("teleopAutoShootCMD is Cancelling belt motor");
                 
                 indexBeltRunner.cancel();
             }

@@ -58,7 +58,7 @@ public class hoodDown extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        //Robot.ballShooter.stopHoodMotor();
+        // Here we do nothing.  The default command will take over the hood handling
     }
 
     // Called when another command which requires one or more of the same

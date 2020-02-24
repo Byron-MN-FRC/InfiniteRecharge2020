@@ -107,7 +107,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
     @Override
     public void periodic() {
         // Put code here to be run every loop
-        //SmartDashboard.putNumber("Encoder Units", hookMotor.getSelectedSensorPosition());
+        SmartDashboard.putNumber("Encoder Units", hookMotor.getSelectedSensorPosition());
         SmartDashboard.putBoolean("Climb Mode", cMode);
     }
 
@@ -128,7 +128,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
     }
 
     public void deployClimbHooks() {
-        // hookMotor.set(0.4), (0.1);
+        //hookMotor.set(0.4), (0.1);
         if (!cMode) {
             System.out.println("Not deploying climb hooks due to cMode");
             return;
@@ -142,7 +142,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
      */
 
     public void lowerClimbHooks() {
-        //hookMotor.set(-0.4);
+        hookMotor.set(-0.4);
     }
 
     public void pullRobotUp() {
@@ -151,11 +151,11 @@ addChild("LeftBuddyServo",leftBuddyServo);
             return;
         }
         winchMotor.set(0.7);
-        // if (hookMotor.getSelectedSensorPosition() >= 0) {
-        //     hookMotor.set(-0.1);
-        // } else {
-        //     hookMotor.set(0);
-        // }
+        if (hookMotor.getSelectedSensorPosition() >= 0) {
+            hookMotor.set(-0.1);
+        } else {
+            hookMotor.set(0);
+        }
     }
     // uses winch motors for buddy front and back, at different speeds, to lift up
     // a friendly bot
@@ -182,55 +182,55 @@ addChild("LeftBuddyServo",leftBuddyServo);
 
     public void driveWithClimbJoystick(Joystick pJoystick) {
         if (!cMode){
-         //   System.out.println("Not raising climb hooks due to cMode");
+            System.out.println("Not raising climb hooks due to cMode");
             return;
         }
         double y = -pJoystick.getY();
-        //hookMotor.set(ControlMode.PercentOutput, y);
+        hookMotor.set(ControlMode.PercentOutput, y);
     }
 
     public void motorConfig() {
         /* Factory default hardware to prevent unexpected behavior */
-        //hookMotor.configFactoryDefault();
+        hookMotor.configFactoryDefault();
 
         /* Configure Sensor Source for Pirmary PID */
-        //hookMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, ClimbConstants.kPIDLoopIdx,
-        //       ClimbConstants.kTimeoutMs);
+        hookMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, ClimbConstants.kPIDLoopIdx,
+              ClimbConstants.kTimeoutMs);
 
         /**
          * Configure Talon SRX Output and Sesnor direction accordingly Invert Motor to
          * have green LEDs when driving Talon Forward / Requesting Postiive Output Phase
          * sensor to have positive increment when driving Talon Forward (Green LED)
          */
-        //hookMotor.setSensorPhase(false); // required to stop
-        //hookMotor.setInverted(false);
+        hookMotor.setSensorPhase(false); // required to stop
+        hookMotor.setInverted(false);
 
         /* Set relevant frame periods to be at least as fast as periodic rate */
-        // hookMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_13_Base_PIDF0, 10, ClimbConstants.kTimeoutMs);
-        // hookMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, ClimbConstants.kTimeoutMs);
+        hookMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_13_Base_PIDF0, 10, ClimbConstants.kTimeoutMs);
+        hookMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, ClimbConstants.kTimeoutMs);
 
         // /* Set the peak and nominal outputs */
-        // hookMotor.configNominalOutputForward(0, ClimbConstants.kTimeoutMs);
-        // hookMotor.configNominalOutputReverse(0, ClimbConstants.kTimeoutMs);
-        // hookMotor.configPeakOutputForward(1, ClimbConstants.kTimeoutMs);
-        // hookMotor.configPeakOutputReverse(-1, ClimbConstants.kTimeoutMs);
+        hookMotor.configNominalOutputForward(0, ClimbConstants.kTimeoutMs);
+        hookMotor.configNominalOutputReverse(0, ClimbConstants.kTimeoutMs);
+        hookMotor.configPeakOutputForward(1, ClimbConstants.kTimeoutMs);
+        hookMotor.configPeakOutputReverse(-1, ClimbConstants.kTimeoutMs);
 
         // /* Set Motion Magic gains in slot0 - see documentation */
-        // hookMotor.selectProfileSlot(ClimbConstants.kSlot_Turning, ClimbConstants.kPIDLoopIdx);
-        // hookMotor.config_kF(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kF,
-        //         ClimbConstants.kTimeoutMs);
-        // hookMotor.config_kP(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kP,
-        //         ClimbConstants.kTimeoutMs);
-        // hookMotor.config_kI(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kI,
-        //         ClimbConstants.kTimeoutMs);
-        // hookMotor.config_kD(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kD,
-        //         ClimbConstants.kTimeoutMs);
-        // /* Set acceleration and vcruise velocity - see documentation */
-        // hookMotor.configMotionCruiseVelocity(15000, ClimbConstants.kTimeoutMs);
-        // hookMotor.configMotionAcceleration(6000, ClimbConstants.kTimeoutMs);
+        hookMotor.selectProfileSlot(ClimbConstants.kSlot_Turning, ClimbConstants.kPIDLoopIdx);
+        hookMotor.config_kF(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kF,
+                ClimbConstants.kTimeoutMs);
+        hookMotor.config_kP(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kP,
+                ClimbConstants.kTimeoutMs);
+        hookMotor.config_kI(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kI,
+                ClimbConstants.kTimeoutMs);
+        hookMotor.config_kD(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kD,
+                ClimbConstants.kTimeoutMs);
+        /* Set acceleration and vcruise velocity - see documentation */
+        hookMotor.configMotionCruiseVelocity(15000, ClimbConstants.kTimeoutMs);
+        hookMotor.configMotionAcceleration(6000, ClimbConstants.kTimeoutMs);
 
         // /* Zero the sensor */
-        // hookMotor.setSelectedSensorPosition(0, ClimbConstants.kPIDLoopIdx, ClimbConstants.kTimeoutMs);
+        hookMotor.setSelectedSensorPosition(0, ClimbConstants.kPIDLoopIdx, ClimbConstants.kTimeoutMs);
 
     }
 
@@ -248,11 +248,11 @@ addChild("LeftBuddyServo",leftBuddyServo);
     // }
 
     public Boolean atHeight() {
-        //ouble currentEncoderUnits = hookMotor.getSelectedSensorPosition(ClimbConstants.kPIDLoopIdx);
+        double currentEncoderUnits = hookMotor.getSelectedSensorPosition(ClimbConstants.kPIDLoopIdx);
         double targetEncoderUnits = ClimbConstants.hookUpEncoderUnits;
-        // if (Math.abs(currentEncoderUnits - targetEncoderUnits)  < 1000) {
-        //     return true;
-        // }
+        if (Math.abs(currentEncoderUnits - targetEncoderUnits)  < 1000) {
+            return true;
+        }
         return false;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
