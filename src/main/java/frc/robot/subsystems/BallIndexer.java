@@ -83,11 +83,11 @@ addChild("indexAcquiredSensor",indexAcquiredSensor);
     boolean ballArrived = false;
     boolean ballPresentAtExit;
 
-
+    public boolean shooterActive = false;
     @Override
     public void periodic() {
         // Put code here to be run every loop
-        if (ballPresent(0) && !indexerRunning) {
+        if (ballPresent(0) && !indexerRunning && !shooterActive)  {
             indexOneBall idxCmd = new indexOneBall();
             indexerRunning = true;
             idxCmd.start();
