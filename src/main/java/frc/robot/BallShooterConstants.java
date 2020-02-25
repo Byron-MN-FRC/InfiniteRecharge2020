@@ -6,8 +6,8 @@ import java.util.TreeMap;
 
 public class BallShooterConstants {
 	//hood  Constants 
-	public final static double kHoodUpEncoderUnits = 2000;//-3500;//4000
-	public final static double kHoodPositionTolerance = 190;
+	public final static double kHoodUpEncoderMax = 3900;
+	public final static double kHoodPositionTolerance = 230;
 	
 	// Shoot motor Constants
 	public final static double kShootMotorRPMTolerance = 50;//rpms
@@ -22,9 +22,8 @@ public class BallShooterConstants {
 	// How long the current has to be above the threshold to trigger limiting
 	public static final double thresholdTime = 0;
 
-
-
-    public static final int kPIDLoopIdx = 0; // Check how it is done with talon
+	public static final int kPIDLoopIdx = 0; 
+	public static final int kSlotIdx = 0;
 
     /**
 	 * Set to zero to skip waiting for confirmation. Set to nonzero to wait and
@@ -32,25 +31,11 @@ public class BallShooterConstants {
 	 */
 	public final static int kTimeoutMs = 30;
 
-	/*
-	 * Firmware currently supports slots [0, 3] and can be used for either PID Set
-	 */
-	public final static int SLOT_0 = 0;
-	public final static int SLOT_1 = 1;
-	public final static int SLOT_2 = 2;
-	public final static int SLOT_3 = 3;
-	/* ---- Named slots, used to clarify code ---- */
-	public final static int kSlot_Distanc = SLOT_0;
-	public final static int kSlot_Turning = SLOT_1;
-	public final static int kSlot_Velocit = SLOT_2;
-	public final static int kSlot_MotProf = SLOT_3;
-
     /*
 	 * Gains(kp, ki, kd, kf, izone, peak output);
 	 */
-	public static final Gains kGains_hoodMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
-//	public static final Gains kGains_shootMotor = new Gains(0.07, 0.001, 0.0, 0.049, 0, 1.0);
-	public static final Gains kGains_shootMotor = new Gains(0.05, 0.001, 0.0, 0.049, 0, 1.0);
+	public static final Gains kGains_hoodMotor = new  Gains(0.7, 0.00001, 0.0, .14, 0, 1.0);
+	public static final Gains kGains_shootMotor = new Gains(0.4, 0.00001, 0.0, 0.049, 500, 1.0);
 
 
 	//
@@ -58,12 +43,15 @@ public class BallShooterConstants {
 		private static final long serialVersionUID = 1L;
 		{	   //target						Hood
 			   //percentage			RPMs	Encoder
-			put( 200, new double[] { -3500, 3000 });
-			put( 75, new double[] { -4300, 3500 });
-			put( 0, new double[] { -1000, 3500 });
-			// put( 78, new double[] { -5000, 4000 });
+			put( 350, new double[] { -3200, 3900 });
+			put( 200, new double[] { -3500, 3800 });
+			put( 100, new double[] { -3800, 3700 });
+			put( 70, new double[] { -4300, 3200 }); // magic spot
+			put( 25, new double[] { -5000, 3200 });
+			put( 0, new double[] { -4300, 3200 });
 
-		}};
+		}
+	};
 	
 	
 	
@@ -88,7 +76,7 @@ public class BallShooterConstants {
 	public static final boolean debug = true;
 	public static final double teleopAutoShootCmdTimeout = 10;
 	public static final double kLoopsToSettle = 10;
-	public static final int kErrThreshold = 100;
+	public static final int kErrThreshold = 500;
 
 	/**
 	 * Position the hood is moved to when idleing.  This should be 0 or stowed so that we can drive under
@@ -100,7 +88,7 @@ public class BallShooterConstants {
 	 * Velocity in RPMs that the robot should idle at when not using the shooter.  This is for 
 	 * conservation of energy and time so that we don't need to spin up each time we try to shoot.
 	 */
-	public static final double shootIdleVelocity = 0;
+	public static final double shootIdleVelocity = -2500;
 
 	}
 

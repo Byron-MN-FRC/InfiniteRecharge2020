@@ -52,14 +52,13 @@ public class hoodDown extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        //return Robot.ballShooter.getHoodEncoderUnits() < 500;
-        return Robot.ballShooter.isLimitSwitchDown();
+        return Robot.ballShooter.hoodAtPosition() || Robot.ballShooter.isLimitSwitchDown();
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
-      //  Robot.ballShooter.stopHoodMotor();
+        // Here we do nothing.  The default command will take over the hood handling
     }
 
     // Called when another command which requires one or more of the same
