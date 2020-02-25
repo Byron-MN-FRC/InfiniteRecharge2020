@@ -115,10 +115,10 @@ addChild("limitSwitchDown",limitSwitchDown);
         SmartDashboard.putNumber("shooter/Motor Output", motorOutput);
         SmartDashboard.putNumber("shooter/Motor Velocity", shootMotor.getSelectedSensorVelocity(0));
         SmartDashboard.putNumber("shooter/Motor Error", shootMotor.getClosedLoopError(0));
-        SmartDashboard.putNumber("shooter/Motor Velocity(RPM)",
+        SmartDashboard.putNumber("DT/shooter/Motor Velocity(RPM)",
                 velocityPer100msToRpm(shootMotor.getSelectedSensorVelocity(0)));
 
-        SmartDashboard.putNumber("shooter/Shooter Temp", shootMotor.getTemperature());
+        SmartDashboard.putNumber("DT/shooter/Shooter Temp", shootMotor.getTemperature());
         SmartDashboard.putNumber("shooter/Shooter Stator Amps", shootMotor.getStatorCurrent());
         SmartDashboard.putNumber("shooter/Hood Pos",hoodMotor.getSelectedSensorPosition(0));
         SmartDashboard.putNumber("shooter/Hood Err", hoodMotor.getClosedLoopError(0));
