@@ -151,8 +151,15 @@ addChild("limitSwitchDown",limitSwitchDown);
      * stored in BallShooterConstants.
      */
     public void idleSubsystem() {
-        masterHoodPos = BallShooterConstants.hoodIdlePosition;
-        masterShootRPM = BallShooterConstants.shootIdleVelocity;
+        
+        if (Robot.climb.cMode == false){
+            masterHoodPos = BallShooterConstants.hoodIdlePosition;
+            masterShootRPM = BallShooterConstants.shootIdleVelocity;
+        } else {
+            masterHoodPos = BallShooterConstants.hoodIdlePosition;
+            masterShootRPM = BallShooterConstants.shootClimbVelocity;
+        }
+
     }
 
     private int loop = 0;
