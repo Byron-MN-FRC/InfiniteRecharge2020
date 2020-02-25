@@ -48,33 +48,38 @@ public class AutoSelector extends CommandGroup {
       if (startingPosition.toUpperCase().equals("L")) {
 
         //addParallel(new AutoSpinup());
-        addSequential(new driveStraightFeet(7));
-        addSequential(new autoTurn(-78));
+        addSequential(new driveStraightFeet(7));//Drives to trench
+        addSequential(new autoTurn(-78));//Lines up with target
         //addSequential(new AutoLimeLightTurn());
-        addSequential(new autoAutoShootCMD());
+        addSequential(new autoAutoShootCMD());//Shoots the balls
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
-        addSequential(new autoTurn(78));
-        addSequential(new driveStraightFeet(7.1));
+        addSequential(new autoTurn(78));//Lines up with other balls
+        addParallel(new startAcquisition());//Runs the aquisition motor
+        addSequential(new driveStraightFeet(7.1));//Grabs the balls
       } else if (startingPosition.toUpperCase().equals("M")) {
 
         //addParallel(new AutoSpinup());
-        addSequential(new autoTurn(-10));
+        addSequential(new autoTurn(-10));//Lines up with target
         //addSequential(new AutoLimeLightTurn());
         //addSequential(new AutoIndexer());
+        addSequential(new autoAutoShootCMD());//Shoots the balls
         //addSequential(new stopShooter());
-        //addParallel(new startAcquisition());
-        addSequential(new autoTurn(105));
-        addSequential(new driveStraightFeet(7.5));
+        addSequential(new autoTurn(105));//Turns to line up with triangle
+        addSequential(new driveStraightFeet(7.5));//Drives into triangle
         
     }else if (startingPosition.toUpperCase().equals("R")) {
 
-        //addParallel(new AutoSpinup());
-        addSequential(new autoTurn(45));
-        addSequential(new driveStraightFeet(11));
-        //addSequential(new AutoLimeLightTurn());
-        //addSequential(new AutoIndexer());
-        //addSequential(new stopShooter());
+         //addParallel(new AutoSpinup());
+         addParallel(new startAcquisition());//Runs acquisition motor
+         addSequential(new driveStraightFeet(7));//drives into opponent's trench to grab balls
+         addSequential(new autoTurn(78));//Lines up with target
+         //addSequential(new AutoLimeLightTurn());
+         addSequential(new autoAutoShootCMD());//Shoots the balls
+         //addSequential(new AutoIndexer());
+         addSequential(new autoTurn(2));//turns right
+         addSequential(new driveStraightFeet(3));//drives out of the trench
+         //addSequential(new stopShooter());
 
     }else {
         addSequential(new driveStraightFeet(2));
