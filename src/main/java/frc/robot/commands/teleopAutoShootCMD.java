@@ -65,6 +65,7 @@ public class teleopAutoShootCMD extends Command {
         //Robot.ballShooter.prepareToShoot(rpms,hoodEncoderUnits);
         setTimeout(BallShooterConstants.teleopAutoShootCmdTimeout);
         indexBeltRunner = new runIndexBelt();
+        Robot.ballIndexer.shooterActive = true;
     }
 
 
@@ -73,16 +74,14 @@ public class teleopAutoShootCMD extends Command {
     @Override
     protected void execute() {
         if (Robot.ballShooter.ready2Shoot(rpms, hoodEncoderUnits)) {
-            // Should call command to do this instead of calling directly in.  
-            // Calling a command with do an appropriate interupt instead of blindly 
-            // taking control.  The command would simply start the motor and exit
-            //Robot.ballShooter.startBelt();
             if (!indexBeltRunner.isRunning()) {
-                System.out.println("Running belt motor");
+                System.out.println("teleopAutoShootCMD is Running belt motor");
                 indexBeltRunner.start();
             }
         } else {
-            if (!Robot.ballShooter.isWithinThreshold() && indexBeltRunner.isRunning()) {
+            if (indexBeltRunner.isRunning()) {
+                System.out.println("teleopAutoShootCMD is Cancelling belt motor");
+                
                 indexBeltRunner.cancel();
             }
        }
@@ -98,10 +97,11 @@ public class teleopAutoShootCMD extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.ballShooter.stopShooter();
+        //Robot.ballShooter.stopShooter();
         if (indexBeltRunner.isRunning()) {
             indexBeltRunner.cancel();
         }
+        Robot.ballIndexer.shooterActive =false;
     }
 
     // Called when another command which requires one or more of the same

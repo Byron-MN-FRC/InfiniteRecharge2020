@@ -128,7 +128,6 @@ addChild("LeftBuddyServo",leftBuddyServo);
     }
 
     public void deployClimbHooks() {
-        // hookMotor.set(0.4), (0.1);
         if (!cMode) {
             System.out.println("Not deploying climb hooks due to cMode");
             return;
@@ -182,7 +181,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
 
     public void driveWithClimbJoystick(Joystick pJoystick) {
         if (!cMode){
-         //   System.out.println("Not raising climb hooks due to cMode");
+            System.out.println("Not raising climb hooks due to cMode");
             return;
         }
         double y = -pJoystick.getY();
@@ -195,7 +194,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
 
         /* Configure Sensor Source for Pirmary PID */
         hookMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, ClimbConstants.kPIDLoopIdx,
-                ClimbConstants.kTimeoutMs);
+              ClimbConstants.kTimeoutMs);
 
         /**
          * Configure Talon SRX Output and Sesnor direction accordingly Invert Motor to
@@ -209,13 +208,13 @@ addChild("LeftBuddyServo",leftBuddyServo);
         hookMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_13_Base_PIDF0, 10, ClimbConstants.kTimeoutMs);
         hookMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, ClimbConstants.kTimeoutMs);
 
-        /* Set the peak and nominal outputs */
+        // /* Set the peak and nominal outputs */
         hookMotor.configNominalOutputForward(0, ClimbConstants.kTimeoutMs);
         hookMotor.configNominalOutputReverse(0, ClimbConstants.kTimeoutMs);
         hookMotor.configPeakOutputForward(1, ClimbConstants.kTimeoutMs);
         hookMotor.configPeakOutputReverse(-1, ClimbConstants.kTimeoutMs);
 
-        /* Set Motion Magic gains in slot0 - see documentation */
+        // /* Set Motion Magic gains in slot0 - see documentation */
         hookMotor.selectProfileSlot(ClimbConstants.kSlot_Turning, ClimbConstants.kPIDLoopIdx);
         hookMotor.config_kF(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kF,
                 ClimbConstants.kTimeoutMs);
@@ -229,7 +228,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
         hookMotor.configMotionCruiseVelocity(15000, ClimbConstants.kTimeoutMs);
         hookMotor.configMotionAcceleration(6000, ClimbConstants.kTimeoutMs);
 
-        /* Zero the sensor */
+        // /* Zero the sensor */
         hookMotor.setSelectedSensorPosition(0, ClimbConstants.kPIDLoopIdx, ClimbConstants.kTimeoutMs);
 
     }
