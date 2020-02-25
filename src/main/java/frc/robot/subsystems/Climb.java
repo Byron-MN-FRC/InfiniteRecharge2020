@@ -119,7 +119,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
     // stopClimbHook and stopPullRobotUp set hookMotor and winchMotor to 0 speed
     public void stopClimbHook() {
         System.out.println("hook stop");
-        //hookMotor.set(0);
+        hookMotor.set(0);
     }
 
     public void stopPullRobotUp() {
@@ -128,7 +128,6 @@ addChild("LeftBuddyServo",leftBuddyServo);
     }
 
     public void deployClimbHooks() {
-        //hookMotor.set(0.4), (0.1);
         if (!cMode) {
             System.out.println("Not deploying climb hooks due to cMode");
             return;
@@ -235,8 +234,7 @@ addChild("LeftBuddyServo",leftBuddyServo);
     }
 
     public WPI_TalonSRX getHookMotor() {
-        return null;
-        //return hookMotor;
+        return hookMotor;
 
     }
     /*
