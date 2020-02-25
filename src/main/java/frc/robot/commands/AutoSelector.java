@@ -63,17 +63,19 @@ public class AutoSelector extends CommandGroup {
         //addSequential(new AutoLimeLightTurn());
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
-        //addParallel(new startAcquisition());
         addSequential(new autoTurn(105));
         addSequential(new driveStraightFeet(7.5));
         
     }else if (startingPosition.toUpperCase().equals("R")) {
 
         //addParallel(new AutoSpinup());
-        addSequential(new autoTurn(45));
-        addSequential(new driveStraightFeet(11));
+        addParallel(new startAcquisition());
+        addSequential(new driveStraightFeet(7));
+        addSequential(new autoTurn(67));
         //addSequential(new AutoLimeLightTurn());
         //addSequential(new AutoIndexer());
+        addSequential(new autoTurn(13));
+        addSequential(new driveStraightFeet(3));
         //addSequential(new stopShooter());
 
     }else {
