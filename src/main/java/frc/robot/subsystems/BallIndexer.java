@@ -111,7 +111,7 @@ addChild("indexAcquiredSensor",indexAcquiredSensor);
         }
 
         ballPresentAtExitPrevious = ballPresentAtExit;
-        SmartDashboard.putNumber("Indexed Powercell Count", ballCount());
+        SmartDashboard.putNumber("DT/Indexed Powercell Count", ballCount());
     }
 
 

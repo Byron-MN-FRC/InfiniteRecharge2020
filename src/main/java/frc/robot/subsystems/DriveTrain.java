@@ -129,10 +129,10 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
         SmartDashboard.putNumber("RFStator Stator", rightFollower.getStatorCurrent());
         SmartDashboard.putNumber("LMStator Stator", leftMaster.getStatorCurrent());
         SmartDashboard.putNumber("LFStator Stator", leftFollower.getStatorCurrent());
-        SmartDashboard.putNumber("RMaster Temp", rightMaster.getTemperature());
-        SmartDashboard.putNumber("RFollow Temp", rightFollower.getTemperature());
-        SmartDashboard.putNumber("LMaster Temp", leftMaster.getTemperature());
-        SmartDashboard.putNumber("LFollow Temp", leftFollower.getTemperature());
+        SmartDashboard.putNumber("DT/RMaster Temp", rightMaster.getTemperature());
+        SmartDashboard.putNumber("DT/RFollow Temp", rightFollower.getTemperature());
+        SmartDashboard.putNumber("DT/LMaster Temp", leftMaster.getTemperature());
+        SmartDashboard.putNumber("DT/LFollow Temp", leftFollower.getTemperature());
 
         // SmartDashboard.putNumber("Left Input Amps", leftMaster.getSupplyCurrent());
         // SmartDashboard.putNumber("Left encoder",
