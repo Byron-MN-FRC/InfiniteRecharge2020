@@ -42,4 +42,15 @@ public class ClimbConstants {
 	public static final Gains kGains_hookMotor = new Gains(0.2, 0.001, 0.0, 0.2, 0, 1.0);
 	public static Object kGains_hoodMotor;
 
+	public static final boolean kEnableCurrentLimiting_BS = true;
+
+	// Current (amp) limit
+	public static final double currentLimit = 20;
+
+	// Threshold that must be exceeded for current limiting to occur
+	public static final double thresholdLimit = 30;
+
+	// How long the current has to be above the threshold to trigger limiting
+	public static final double thresholdTime = 0;
+
 }
