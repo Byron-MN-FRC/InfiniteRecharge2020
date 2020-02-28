@@ -43,17 +43,22 @@ public class LimeLightTurn extends Command {
     @Override
     protected void initialize() {
         setTimeout(5);
+        LimelightUtility.EnableDriverCamera(false); 
+        LimelightUtility.WriteDouble("ledMode", 3); // 3 = Limelight On
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
         Robot.driveTrain.closedLoopTurn(getTargetTurn());
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        LimelightUtility.WriteDouble("ledMode", 1); // 1 = Limelight Off
+        LimelightUtility.EnableDriverCamera(true);
         return Robot.driveTrain.closedLoopTurnComplete(getTargetTurn()) || isTimedOut();
     }
 
