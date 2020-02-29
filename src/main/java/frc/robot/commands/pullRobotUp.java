@@ -50,8 +50,9 @@ public class pullRobotUp extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        System.out.println("Proximity =" + Robot.climb.getProximity());
-        return Robot.climb.getProximity() >= 3000;
+        //System.out.println("Proximity =" + Robot.climb.getProximity());
+        //return Robot.climb.getProximity() >= 3000;
+        return false;
     }
 
     // Called once after isFinished returns true
