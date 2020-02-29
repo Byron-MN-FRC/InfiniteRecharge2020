@@ -162,17 +162,42 @@ buddyBackWinch = new WPI_TalonFX(15);
             hookMotor.set(0);
         }
     }
+
     // uses winch motors for buddy front and back, at different speeds, to lift up
     // a friendly bot
 
-    public void pullBuddyUp() {
+    public void pullBuddyUpBack() {
         if (!cMode) {
             System.out.println("not pulling buddy up due to cMode");
             return;
         }
-        buddyBackWinch.set(0.3);
-        buddyFrontWinch.set(0.4);
+        buddyBackWinch.set(-0.3);
+
     }
+
+    public void pullBuddyUpFront() {
+        if (!cMode) {
+            System.out.println("not pulling buddy up due to cMode");
+        }
+        buddyFrontWinch.set(-0.4);
+    }
+
+    public void stopBuddyFront() {
+        buddyFrontWinch.set(0);
+    }
+
+    public void stopBuddyBack() {
+        buddyBackWinch.set(0);
+    }
+
+    public void releaseBuddyWinchFront() {
+        buddyFrontWinch.set(.4);
+    }
+
+    public void releaseBuddyWinchBack() {
+        buddyBackWinch.set(.3);
+    }
+
     public void releaseWinch() {
         if (!cMode) {
             System.out.println("Not reversing winch due to cMode");
