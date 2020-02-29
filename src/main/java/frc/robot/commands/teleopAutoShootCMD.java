@@ -77,12 +77,15 @@ public class teleopAutoShootCMD extends Command {
             if (!indexBeltRunner.isRunning()) {
                 System.out.println("teleopAutoShootCMD is Running belt motor");
                 indexBeltRunner.start();
+                
+            } else if(!Robot.ballIndexer.ballPresent(1)) {
+                Robot.ballAcquisition.startAcquireMotor();
             }
         } else {
             if (indexBeltRunner.isRunning()) {
                 System.out.println("teleopAutoShootCMD is Cancelling belt motor");
                 
-                indexBeltRunner.cancel();
+                indexBeltRunner.cancel();   
             }
        }
     }
@@ -100,6 +103,7 @@ public class teleopAutoShootCMD extends Command {
         if (indexBeltRunner.isRunning()) {
             indexBeltRunner.cancel();
         }
+        Robot.ballAcquisition.stopAcquireMotor();
         Robot.ballIndexer.shooterActive =false;
     }
 

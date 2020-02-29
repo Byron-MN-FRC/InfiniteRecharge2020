@@ -191,13 +191,26 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
         twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
         
         if (Robot.shifter.highGear == true) {
+            double max = .7;
+            leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+            leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+            rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+            rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
             y = ThrottleLookup.calcJoystickCorrection("HighGearRamp", y);
-            twist = ThrottleLookup.calcJoystickCorrection("HighGearTurn", twist);
+            //twist = ThrottleLookup.calcJoystickCorrection("HighGearTurn", twist);
+            twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
             tankDrive.arcadeDrive(y, -twist);
         } else {
+            double max = .4;
+            double maxxx = 1.0;
+            leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+            leftMaster.configPeakOutputReverse(-maxxx, Constants.kTimeoutMs);
+            rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+            rightMaster.configPeakOutputReverse(-maxxx, Constants.kTimeoutMs);
             y = ThrottleLookup.calcJoystickCorrection("LowGearRamp", y);
             twist = ThrottleLookup.calcJoystickCorrection("LowGearTurn", twist);
             tankDrive.arcadeDrive(y, -twist);
+
         }
         
     }
@@ -375,10 +388,10 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
         // Constants.kTimeoutMs);
         // rightMaster.enableCurrentLimit(_currentLimEn); // Honor initial setting
            //Set Max output of motors
-    double max = 0.25;
-    leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+    //double max = 0.25;
+    //leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
     // leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-    rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
+    //rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
     //rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
 
     }
@@ -541,7 +554,7 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
     }
 
     public void teleopLimiting() {
-        double max = 0.8;
+        double max = 1.0;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
