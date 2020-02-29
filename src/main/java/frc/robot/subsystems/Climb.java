@@ -168,18 +168,19 @@ buddyBackWinch = new WPI_TalonFX(15);
 
     public void pullBuddyUpBack() {
         if (!cMode) {
-            System.out.println("not pulling buddy up due to cMode");
+            //System.out.println("not pulling buddy up due to cMode");
             return;
         }
-        buddyBackWinch.set(-0.3);
+        buddyBackWinch.set(-0.6);
 
     }
 
     public void pullBuddyUpFront() {
         if (!cMode) {
-            System.out.println("not pulling buddy up due to cMode");
+            //System.out.println("not pulling buddy up due to cMode");
+            return;
         }
-        buddyFrontWinch.set(-0.4);
+        buddyFrontWinch.set(-0.7);
     }
 
     public void stopBuddyFront() {
