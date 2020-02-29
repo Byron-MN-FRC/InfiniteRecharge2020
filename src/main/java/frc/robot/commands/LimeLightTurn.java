@@ -38,6 +38,8 @@ public class LimeLightTurn extends Command {
 
 
     private double targetTurn;
+    private boolean targetAcquired = false;
+    private double ledWarmUp = 350;
 
     // Called just before this Command runs the first time
     @Override
@@ -45,26 +47,32 @@ public class LimeLightTurn extends Command {
         setTimeout(5);
         LimelightUtility.EnableDriverCamera(false); 
         LimelightUtility.WriteDouble("ledMode", 3); // 3 = Limelight On
+        ledWarmUp = 100;
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.driveTrain.closedLoopTurn(getTargetTurn());
+        targetAcquired = LimelightUtility.ValidTargetFound();
+        targetTurn = getTargetTurn();
+        Robot.driveTrain.closedLoopTurn(targetTurn);
 
+        ledWarmUp--;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        LimelightUtility.WriteDouble("ledMode", 1); // 1 = Limelight Off
-        LimelightUtility.EnableDriverCamera(true);
-        return Robot.driveTrain.closedLoopTurnComplete(getTargetTurn()) || isTimedOut();
+        boolean tc = Robot.driveTrain.closedLoopTurnComplete(targetTurn);
+        
+        return (tc && (ledWarmUp <= 0))  || isTimedOut();
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        LimelightUtility.WriteDouble("ledMode", 1); // 1 = Limelight Off
+        LimelightUtility.EnableDriverCamera(true);
     }
 
     // Called when another command which requires one or more of the same
