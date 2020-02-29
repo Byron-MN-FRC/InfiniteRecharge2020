@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.AutoSelector;
 import frc.robot.commands.AutonomousCommand;
+import frc.robot.commands.setHoodToZero;
 import frc.robot.subsystems.BallAcquisition;
 import frc.robot.subsystems.BallIndexer;
 import frc.robot.subsystems.BallShooter;
@@ -105,6 +106,8 @@ shifter = new Shifter();
         Scheduler.getInstance().run();
     }
 
+    setHoodToZero hoodToZero = new setHoodToZero();
+
     @Override
     public void autonomousInit() {
  //       autonomousCommand = chooser.getSelected();
@@ -118,6 +121,8 @@ shifter = new Shifter();
         Robot.ballShooter.reinitializeShooter();
         Robot.shifter.reinitializeShifter();
         Robot.ballAcquisition.reinitializeAquisition();
+        hoodToZero.start();
+
         // schedule the autonomous command (example)
    //     if (autonomousCommand != null) autonomousCommand.start();
             autonomousCommand = new AutoSelector();
@@ -149,6 +154,7 @@ shifter = new Shifter();
         Robot.shifter.reinitializeShifter();
         Robot.ballAcquisition.reinitializeAquisition();
         Robot.climb.reInitializeClimb();
+        hoodToZero.start();
     }
 
     /**
