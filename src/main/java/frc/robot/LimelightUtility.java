@@ -17,7 +17,7 @@ public class LimelightUtility {
     static private double tvert;	//Vertical sidelength of the rough bounding box (0 - 320 pixels)
     static private double camtran[];  // 3d translation of image from limelight
 
-    static public boolean ValidTargetFound() { return tv != 0.0; }     //Whether the limelight has any valid targets (0 or 1)
+    static public boolean ValidTargetFound() { return ta != 0.0; }     //Whether the limelight has any valid targets (0 or 1)
     static public double TargetHorizontalOffset;                       //Horizontal Offset From Crosshair To Target (-27 degrees to 27 degrees)
     static public double TargetVerticalOffset;                         //Vertical Offset From Crosshair To Target (-20.5 degrees to 20.5 degrees)
     static public double TargetAreaPercentage;                         //Target Area (0% of image to 100% of image)
