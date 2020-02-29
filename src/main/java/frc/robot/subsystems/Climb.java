@@ -135,7 +135,7 @@ buddyBackWinch = new WPI_TalonFX(15);
 
     public void deployClimbHooks() {
         if (!cMode) {
-            System.out.println("Not deploying climb hooks due to cMode");
+           System.out.println("Not deploying climb hooks due to cMode");
             return;
         }
         double hookUpEncoderUnits = ClimbConstants.hookUpEncoderUnits;

@@ -44,6 +44,7 @@ public class disengageColorSensor extends Command {
     @Override
     protected void execute() {
         Robot.controlPanel.retractColorSensor();
+      //  System.out.println("lower control pannel");
     }
 
     // Make this return true when this Command no longer needs to run execute()

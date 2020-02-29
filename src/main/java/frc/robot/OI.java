@@ -142,7 +142,11 @@ btnAcquire.whileHeld(new startAcquisition());
 
         // SmartDashboard Buttons
         SmartDashboard.putData("deployLinearSlide", new deployLinearSlide());
+        SmartDashboard.putData("spinToColor", new spinToColor());
         SmartDashboard.putData("releaseWinch", new releaseWinch());
+        SmartDashboard.putData("engageColorSensor", new engageColorSensor());
+        SmartDashboard.putData("disengageColorSensor", new disengageColorSensor());
+        SmartDashboard.putData("spinCtrlPanelByEncorder", new spinCtrlPanelByEncorder());
         SmartDashboard.putData("testShootMotor", new testShootMotor());
         SmartDashboard.putData("teleopAutoShootCMD", new teleopAutoShootCMD());
         SmartDashboard.putData("ReleaseBuddyWinchFront", new ReleaseBuddyWinchFront());
