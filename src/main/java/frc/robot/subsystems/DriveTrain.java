@@ -541,11 +541,14 @@ addChild("coolingSolenoidMotors",coolingSolenoidMotors);
     }
 
     public void teleopLimiting() {
-        double max = 0.5;
+        double max = 0.8;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
     }
 
+    public TalonFXConfiguration getRightMotor() {
+        return _rightConfig;
+    }
 }

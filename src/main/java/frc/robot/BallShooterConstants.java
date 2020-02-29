@@ -88,7 +88,7 @@ public class BallShooterConstants {
 	 * Velocity in RPMs that the robot should idle at when not using the shooter.  This is for 
 	 * conservation of energy and time so that we don't need to spin up each time we try to shoot.
 	 */
-	public static final double shootIdleVelocity = -500;
+	public static final double shootIdleVelocity = -2500;
 	public static final double shootClimbVelocity = 0;
 
 	}
