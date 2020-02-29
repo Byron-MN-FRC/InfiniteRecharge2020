@@ -69,6 +69,9 @@ public class driveStraightFeet extends Command {
     protected void end() {
         Robot.driveTrain.stop();
         Robot.driveTrain.motorConfigFalcon();
+        Robot.driveTrain.getRightMotor().motionAcceleration = 1000; // (distance units per 100 ms) per second
+        Robot.driveTrain.getRightMotor().motionCruiseVelocity = 4000; // distance units per 100 ms
+
     }
 
     // Called when another command which requires one or more of the same

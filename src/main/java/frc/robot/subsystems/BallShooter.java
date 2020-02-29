@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.BallIndexerConstants;
 import frc.robot.BallShooterConstants;
+import frc.robot.LimelightUtility;
 import frc.robot.Robot;
 import frc.robot.commands.climbMode;
 import frc.robot.commands.idleBallShooter;
@@ -106,6 +107,7 @@ addChild("limitSwitchDown",limitSwitchDown);
 
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
+        LimelightUtility.EnableDriverCamera(false);
     }
 
     @Override
