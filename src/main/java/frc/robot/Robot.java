@@ -108,11 +108,12 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run();
     }
 
-    setHoodToZero hoodToZero = new setHoodToZero();
+    //setHoodToZero hoodToZero = new setHoodToZero();
 
     @Override
     public void autonomousInit() {
         initializeSubsystems();
+        Robot.driveTrain.autonomousLimiting();        
         // schedule the autonomous command (example)
         // if (autonomousCommand != null) autonomousCommand.start();
         autonomousCommand = new AutoSelector();
@@ -124,7 +125,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
-        Robot.driveTrain.autonomousLimiting();
+
         Scheduler.getInstance().run();
     }
 
