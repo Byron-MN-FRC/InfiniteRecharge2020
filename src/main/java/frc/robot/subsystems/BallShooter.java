@@ -403,11 +403,11 @@ public class BallShooter extends Subsystem {
      * 
      * @param s - the string to write out to the console..
      */
-    private void toConsole(final String s) {
-        if (BallShooterConstants.debug) {
-            System.out.print(s);
-        }
-    }
+    // private void toConsole(final String s) {
+    //     if (BallShooterConstants.debug) {
+    //         System.out.print(s);
+    //     }
+    // }
 
     private double _withinThresholdLoops = 0;
 

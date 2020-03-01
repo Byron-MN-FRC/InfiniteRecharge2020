@@ -170,5 +170,6 @@ public class Robot extends TimedRobot {
         Robot.shifter.reinitializeShifter();
         Robot.ballAcquisition.reinitializeAquisition();
         Robot.climb.reInitializeClimb();
+        Robot.controlPanel.reinitializeControlPanel();
     }
 }

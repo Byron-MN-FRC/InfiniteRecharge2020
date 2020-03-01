@@ -339,10 +339,10 @@ public class Climb extends Subsystem {
      * 
      * @param s - the string to write out to the console..
      */
-    private void toConsole(final String s) {
-        if (ClimbConstants.debug) {
-            System.out.print(s);
-        }
-    }
+    // private void toConsole(final String s) {
+    //     if (ClimbConstants.debug) {
+    //         System.out.print(s);
+    //     }
+    // }
 
 }
