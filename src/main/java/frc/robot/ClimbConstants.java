@@ -53,4 +53,6 @@ public class ClimbConstants {
 	// How long the current has to be above the threshold to trigger limiting
 	public static final double thresholdTime = 0;
 
+	public static final boolean test = false;
+
 }

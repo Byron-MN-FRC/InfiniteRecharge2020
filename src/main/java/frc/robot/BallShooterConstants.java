@@ -74,6 +74,7 @@ public class BallShooterConstants {
 		}
 		}*/
 	public static final boolean debug = true;
+	public static final boolean test = false;
 	public static final double teleopAutoShootCmdTimeout = 10;
 	public static final double kLoopsToSettle = 10;
 	public static final int kErrThreshold = 500;

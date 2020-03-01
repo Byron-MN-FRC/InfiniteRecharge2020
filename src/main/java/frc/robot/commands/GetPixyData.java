@@ -96,8 +96,8 @@ public class GetPixyData extends Command {
             }
         }
         if (Constants.pixyOnDashboard) {
-            SmartDashboard.putNumber("PwrCellXPos", blockPos); 
-            SmartDashboard.putNumber("PwrCellHeight", blockHeight); 
+            SmartDashboard.putNumber("pixy/PwrCellXPos", blockPos); 
+            SmartDashboard.putNumber("pixy/PwrCellHeight", blockHeight); 
         }
     }
 
