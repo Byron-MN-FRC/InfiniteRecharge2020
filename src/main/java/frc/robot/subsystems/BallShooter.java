@@ -57,6 +57,9 @@ public class BallShooter extends Subsystem {
 
     private double masterShootRPM = 0;
     private double masterHoodPos = 0;
+    private double shootIdleVelocity = 0;
+
+    public boolean inAuton = false;
 
     /**
      * This is the constructor for the BallShooter subsystem.
@@ -148,8 +151,13 @@ public class BallShooter extends Subsystem {
      */
     public void idleSubsystem() {
         masterHoodPos = BallShooterConstants.hoodIdlePosition;
-        if (Timer.getMatchTime() != -1) { 
-            masterShootRPM = BallShooterConstants.shootIdleVelocity;
+        if (inAuton) {
+            // masterShootRPM = BallShooterConstants.magicRPMS;
+            masterShootRPM = -2500;
+        } else if (Timer.getMatchTime() != -1) {
+            masterShootRPM = -2500;
+        } else {
+            masterShootRPM = 0;
         }
     }
 
@@ -489,7 +497,11 @@ public class BallShooter extends Subsystem {
     }
 
     public void setMasterShootVelocity(double rpms) {
-        shootMotor.set(ControlMode.Velocity, rpmToVelocityPer100ms(rpms));
+        if (rpms == 0) {
+            shootMotor.set(ControlMode.PercentOutput, rpms);
+        } else {
+            shootMotor.set(ControlMode.Velocity, rpmToVelocityPer100ms(rpms));
+        }
     }
 
     public boolean hoodAtLimit = false;
@@ -513,5 +525,9 @@ public class BallShooter extends Subsystem {
             hoodMotor.set(ControlMode.PercentOutput, 0);
             hoodAtLimit = true;
         }
+    }
+
+    public void setShootIdleVelocity(double rpms) {
+        shootIdleVelocity = rpms;
     }
 }

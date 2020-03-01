@@ -55,7 +55,7 @@ public class AutoSelector extends CommandGroup {
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
         addSequential(new autoTurn(75));
-        addParallel(new startAcquisition());
+        //addParallel(new startAcquisition());
         addSequential(new driveStraightFeet(8.1));
       } else if (startingPosition.toUpperCase().equals("M")) {
 

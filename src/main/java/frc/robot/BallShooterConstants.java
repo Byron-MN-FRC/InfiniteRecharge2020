@@ -38,7 +38,12 @@ public class BallShooterConstants {
 	public static final Gains kGains_shootMotor = new Gains(0.4, 0.00001, 0.0, 0.049, 500, 1.0);
 
 
+	/**
+	 * This is our best shooting position, edge of control panel trough
+	 */
 	//
+	public static final double magicRPMS = -4300;
+	
 	public static final TreeMap<Integer, double[]> targetPercent2ShooterParms = new TreeMap<Integer, double[]>() {
 		private static final long serialVersionUID = 1L;
 		{	   //target						Hood
@@ -46,7 +51,7 @@ public class BallShooterConstants {
 			put( 350, new double[] { -3200, 3900 });
 			put( 200, new double[] { -3500, 3800 });
 			put( 100, new double[] { -3800, 3700 });
-			put( 70, new double[] { -4300, 3200 }); // magic spot
+			put( 70, new double[] { magicRPMS, 3200 }); // magic spot
 			put( 25, new double[] { -5000, 3200 });
 			put( 0, new double[] { -4300, 3200 });
 

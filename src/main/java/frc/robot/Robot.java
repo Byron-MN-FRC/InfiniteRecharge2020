@@ -117,6 +117,7 @@ public class Robot extends TimedRobot {
         Robot.driveTrain.autonomousLimiting();        
         // schedule the autonomous command (example)
         // if (autonomousCommand != null) autonomousCommand.start();
+
         autonomousCommand = new AutoSelector();
         autonomousCommand.start();
     }
@@ -126,9 +127,11 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
+        ballShooter.inAuton = true;
         SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("drive/Game Timer", Timer.getMatchTime());
+
     }
 
     @Override
@@ -149,6 +152,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        ballShooter.inAuton = false;
         Scheduler.getInstance().run();
         LimelightUtility.RefreshTrackingData();
         SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
