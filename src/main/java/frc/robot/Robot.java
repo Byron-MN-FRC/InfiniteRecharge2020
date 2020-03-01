@@ -106,7 +106,7 @@ shifter = new Shifter();
         Scheduler.getInstance().run();
     }
 
-    setHoodToZero hoodToZero = new setHoodToZero();
+    //setHoodToZero hoodToZero = new setHoodToZero();
 
     @Override
     public void autonomousInit() {
@@ -121,7 +121,7 @@ shifter = new Shifter();
         Robot.ballShooter.reinitializeShooter();
         Robot.shifter.reinitializeShifter();
         Robot.ballAcquisition.reinitializeAquisition();
-        hoodToZero.start();
+      //  hoodToZero.start();
 
         // schedule the autonomous command (example)
    //     if (autonomousCommand != null) autonomousCommand.start();
@@ -154,7 +154,7 @@ shifter = new Shifter();
         Robot.shifter.reinitializeShifter();
         Robot.ballAcquisition.reinitializeAquisition();
         Robot.climb.reInitializeClimb();
-        hoodToZero.start();
+      //  hoodToZero.start();
     }
 
     /**
