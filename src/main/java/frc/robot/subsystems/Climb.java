@@ -44,8 +44,6 @@ private WPI_TalonSRX hookMotor;
 private WPI_TalonSRX winchMotor;
 private AnalogInput proximitySensor;
 private Solenoid buddyPiston;
-private Servo rightBuddyServo;
-private Servo leftBuddyServo;
 private WPI_TalonFX buddyFrontWinch;
 private WPI_TalonFX buddyBackWinch;
 
@@ -73,14 +71,6 @@ addChild("ProximitySensor",proximitySensor);
         
 buddyPiston = new Solenoid(10, 0);
 addChild("buddyPiston",buddyPiston);
-
-        
-rightBuddyServo = new Servo(0);
-addChild("RightBuddyServo",rightBuddyServo);
-
-        
-leftBuddyServo = new Servo(1);
-addChild("LeftBuddyServo",leftBuddyServo);
 
         
 buddyFrontWinch = new WPI_TalonFX(12);
@@ -262,8 +252,10 @@ buddyBackWinch = new WPI_TalonFX(15);
         hookMotor.config_kD(ClimbConstants.kSlot_Turning, ClimbConstants.kGains_hookMotor.kD,
                 ClimbConstants.kTimeoutMs);
         /* Set acceleration and vcruise velocity - see documentation */
-        hookMotor.configMotionCruiseVelocity(15000, ClimbConstants.kTimeoutMs);
-        hookMotor.configMotionAcceleration(6000, ClimbConstants.kTimeoutMs);
+        // hookMotor.configMotionCruiseVelocity(15000, ClimbConstants.kTimeoutMs);
+        // hookMotor.configMotionAcceleration(6000, ClimbConstants.kTimeoutMs);
+        hookMotor.configMotionCruiseVelocity(11250, ClimbConstants.kTimeoutMs);
+        hookMotor.configMotionAcceleration(4500, ClimbConstants.kTimeoutMs);
 
         // /* Zero the sensor */
         hookMotor.setSelectedSensorPosition(0, ClimbConstants.kPIDLoopIdx, ClimbConstants.kTimeoutMs);
@@ -317,21 +309,21 @@ buddyBackWinch = new WPI_TalonFX(15);
      //supposed to deploy buddy net, not currently being used.
     public void deployBuddyNet (){
         buddyPiston.set(true); //ask if it will go 
-        Timer.delay(5);
-        toggleServoOn();
+       // Timer.delay(5);
+        //toggleServoOn();
     }
 
     //moves servos
-    public void toggleServoOn() {
-            rightBuddyServo.set(.5);
-            leftBuddyServo.set(.5);
-        }
+    // public void toggleServoOn() {
+    //         rightBuddyServo.set(.5);
+    //         leftBuddyServo.set(.5);
+    //     }
 
     //also moves servos
-    public void toggleServoOff() {
-            rightBuddyServo.set(1);
-            leftBuddyServo.set(0);
-    }
+    // public void toggleServoOff() {
+    //         rightBuddyServo.set(1);
+    //         leftBuddyServo.set(0);
+    // }
 
     public void stopBuddyWinch() {
         buddyBackWinch.set(0);
@@ -339,19 +331,19 @@ buddyBackWinch = new WPI_TalonFX(15);
     }
 
     public void reInitializeClimb() {
-        leftBuddyServo.set(0);
-        rightBuddyServo.set(1);
+        // leftBuddyServo.set(0);
+        // rightBuddyServo.set(1);
         cMode = false;
     }
      //moves right and left servos
-     public void toggleServos() {
-        if (releaseServo == false) {
-            rightBuddyServo.set(1);
-            leftBuddyServo.set(0);
-        }
-        else {
-            rightBuddyServo.set(.5);
-            leftBuddyServo.set(.5);
-        }
-    }
+    //  public void toggleServos() {
+    //     if (releaseServo == false) {
+    //         rightBuddyServo.set(1);
+    //         leftBuddyServo.set(0);
+    //     }
+    //     else {
+    //         rightBuddyServo.set(.5);
+    //         leftBuddyServo.set(.5);
+    //     }
+    // }
 }

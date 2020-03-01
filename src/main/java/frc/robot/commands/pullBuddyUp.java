@@ -56,7 +56,7 @@ public class pullBuddyUp extends Command {
     @Override
     protected void end() {
         Robot.climb.stopBuddyWinch();
-        Robot.climb.toggleServoOff();
+      //  Robot.climb.toggleServoOff();
     }
 
     // Called when another command which requires one or more of the same

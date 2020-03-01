@@ -39,8 +39,8 @@ public class toggleServo extends Command {
     @Override
     protected void initialize() {
           //releaseServo = true
-          Robot.climb.releaseServo = !Robot.climb.releaseServo;
-          Robot.climb.toggleServos();
+        //  Robot.climb.releaseServo = !Robot.climb.releaseServo;
+         // Robot.climb.toggleServos();
     }
 
     // Called repeatedly when this Command is scheduled to run
