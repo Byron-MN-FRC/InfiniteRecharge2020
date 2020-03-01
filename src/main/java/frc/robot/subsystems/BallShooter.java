@@ -97,7 +97,6 @@ public class BallShooter extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
         LimelightUtility.EnableDriverCamera(false);
-        hoodAtLimit = false;
     }
 
     @Override
@@ -155,6 +154,8 @@ public class BallShooter extends Subsystem {
             // masterShootRPM = BallShooterConstants.magicRPMS;
             masterShootRPM = -2500;
         } else if (Timer.getMatchTime() != -1) {
+            masterShootRPM = -2500;
+        } else if (teleopWithIdle) {
             masterShootRPM = -2500;
         } else {
             masterShootRPM = 0;
@@ -274,7 +275,7 @@ public class BallShooter extends Subsystem {
         // coolingSolenoidShooter.set(false);
         // coolingOn = false;
         // timer = 0;
-        hoodMotor.setSelectedSensorPosition(0, BallShooterConstants.kPIDLoopIdx, BallShooterConstants.kTimeoutMs);
+        teleopWithIdle = false;
     }
 
     public double getShooterRPM() {
@@ -442,6 +443,7 @@ public class BallShooter extends Subsystem {
     double dd = 0;
     double ff = 0;
     double oldTarget = 0;
+    public boolean teleopWithIdle = false;
 
     public void testShootMotor() {
 
@@ -504,13 +506,10 @@ public class BallShooter extends Subsystem {
         }
     }
 
-    public boolean hoodAtLimit = false;
-
-    public void zeroOutHood() {
-        hoodMotor.configPeakCurrentLimit(1);
-        hoodMotor.configPeakCurrentDuration(300);
-        hoodMotor.configContinuousCurrentLimit(0);
-        hoodMotor.enableCurrentLimit(true);
+    public boolean zeroOutHood() {
+        // hoodMotor.configPeakCurrentLimit(1);
+        // hoodMotor.configPeakCurrentDuration(300);
+        // hoodMotor.enableCurrentLimit(true);
 
         hoodMotor.set(ControlMode.PercentOutput, -0.3);
         // check to see if the limit switch is trippped.
@@ -521,13 +520,18 @@ public class BallShooter extends Subsystem {
 
         // if either above, Stop and zero
         if (hoodStalled || limitReached) {
-            reinitializeShooter();
+            hoodMotor.setSelectedSensorPosition(0, BallShooterConstants.kPIDLoopIdx, BallShooterConstants.kTimeoutMs);
             hoodMotor.set(ControlMode.PercentOutput, 0);
-            hoodAtLimit = true;
+            return true;
         }
+        return false;
     }
 
     public void setShootIdleVelocity(double rpms) {
-        shootIdleVelocity = rpms;
+        setMasterShootVelocity(rpms);
+    }
+
+    public void stopHoodMotor() {
+        hoodMotor.set(ControlMode.PercentOutput, 0);
     }
 }

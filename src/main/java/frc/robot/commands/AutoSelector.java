@@ -48,6 +48,7 @@ public class AutoSelector extends CommandGroup {
       if (startingPosition.toUpperCase().equals("L")) {
 
         //addParallel(new AutoSpinup());
+        addParallel(new setHoodToZero());
         addSequential(new driveStraightFeet(7));
         addSequential(new autoTurn(-75));
         //addSequential(new AutoLimeLightTurn());

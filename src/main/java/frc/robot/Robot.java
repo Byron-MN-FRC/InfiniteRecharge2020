@@ -102,6 +102,8 @@ public class Robot extends TimedRobot {
         // Set the limelight so that it can be configured.
         LimelightUtility.EnableDriverCamera(false);
         LimelightUtility.StreamingMode(StreamMode.Standard);
+        Robot.ballShooter.teleopWithIdle = false;
+        Robot.ballShooter.setShootIdleVelocity(0);
     }
 
     @Override
@@ -109,7 +111,6 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run();
     }
 
-    //setHoodToZero hoodToZero = new setHoodToZero();
 
     @Override
     public void autonomousInit() {
