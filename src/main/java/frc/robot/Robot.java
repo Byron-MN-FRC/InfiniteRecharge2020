@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.LimelightUtility.StreamMode;
 import frc.robot.commands.AutoSelector;
 import frc.robot.commands.AutonomousCommand;
+import frc.robot.commands.setHoodToZero;
 import frc.robot.subsystems.BallAcquisition;
 import frc.robot.subsystems.BallIndexer;
 import frc.robot.subsystems.BallShooter;
@@ -106,6 +107,8 @@ public class Robot extends TimedRobot {
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
     }
+
+    setHoodToZero hoodToZero = new setHoodToZero();
 
     @Override
     public void autonomousInit() {
