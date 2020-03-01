@@ -54,7 +54,7 @@ public class pullRobotUp extends Command {
     protected boolean isFinished() {
         //System.out.println("Proximity =" + Robot.climb.getProximity());
         //return Robot.climb.getProximity() >= 3000;
-        return Robot.climb.getProximity() >= 3000;
+        return Robot.climb.isLimitSwitchDown();
         //return false;
     }
 
