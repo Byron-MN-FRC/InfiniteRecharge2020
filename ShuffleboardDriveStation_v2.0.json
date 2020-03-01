@@ -1,0 +1,123 @@
+{
+  "tabPane": [
+    {
+      "title": "Drive",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/drive/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "8,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Simple Dial",
+              "_source0": "network_table:///SmartDashboard/drive/RFollow Temp",
+              "_title": "RFollow Temp",
+              "Range/Min": 30.0,
+              "Range/Max": 90.0,
+              "Visuals/Show value": true
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Simple Dial",
+              "_source0": "network_table:///SmartDashboard/drive/LMaster Temp",
+              "_title": "LMaster Temp",
+              "Range/Min": 9.0,
+              "Range/Max": 90.0,
+              "Visuals/Show value": true
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Simple Dial",
+              "_source0": "network_table:///SmartDashboard/drive/RMaster Temp",
+              "_title": "RMaster Temp",
+              "Range/Min": 9.0,
+              "Range/Max": 90.0,
+              "Visuals/Show value": true
+            }
+          },
+          "1,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/drive/Indexed Powercell Count",
+              "_title": "PwrCell Count"
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/drive/Starting Position (L, M, R)",
+              "_title": "Auton Pos(L, M, R)"
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Simple Dial",
+              "_source0": "network_table:///SmartDashboard/drive/LFollow Temp",
+              "_title": "LFollow Temp",
+              "Range/Min": 9.0,
+              "Range/Max": 90.0,
+              "Visuals/Show value": true
+            }
+          },
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/drive/Auto mode",
+              "_title": "Auto mode"
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/drive/Gear",
+              "_title": "Gear"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -8.0,
+    "y": -8.0,
+    "width": 1936.0,
+    "height": 1176.0
+  }
+}
