@@ -14,6 +14,7 @@ import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -125,8 +126,9 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
-
+        SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("drive/Game Timer", Timer.getMatchTime());
     }
 
     @Override
@@ -150,6 +152,7 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run();
         LimelightUtility.RefreshTrackingData();
         SmartDashboard.putBoolean("drive/LimeLight Target", LimelightUtility.ValidTargetFound());
+        SmartDashboard.putNumber("drive/Game Timer", Timer.getMatchTime());
     }
 
     public void initializeSubsystems() {

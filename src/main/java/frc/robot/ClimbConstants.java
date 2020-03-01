@@ -54,5 +54,6 @@ public class ClimbConstants {
 	public static final double thresholdTime = 0;
 
 	public static final boolean test = false;
+	public static final boolean debug = false;
 
 }

@@ -101,18 +101,18 @@ public class Climb extends Subsystem {
 
     // stopClimbHook and stopPullRobotUp set hookMotor and winchMotor to 0 speed
     public void stopClimbHook() {
-        System.out.println("hook stop");
+        toConsoleln("hook stop");
         hookMotor.set(0);
     }
 
     public void stopPullRobotUp() {
-        System.out.println("up stop");
+        toConsoleln("up stop");
         winchMotor.set(0);
     }
 
     public void deployClimbHooks() {
         if (!cMode) {
-            System.out.println("Not deploying climb hooks due to cMode");
+            toConsoleln("Not deploying climb hooks due to cMode");
             return;
         }
         double hookUpEncoderUnits = ClimbConstants.hookUpEncoderUnits;
@@ -129,7 +129,7 @@ public class Climb extends Subsystem {
 
     public void pullRobotUp() {
         if (!cMode) {
-            System.out.println("Not raising robot due to cMode");
+            toConsoleln("Not raising robot due to cMode");
             return;
         }
         winchMotor.set(0.7);
@@ -145,7 +145,7 @@ public class Climb extends Subsystem {
 
     public void pullBuddyUpBack() {
         if (!cMode) {
-            // System.out.println("not pulling buddy up due to cMode");
+            toConsoleln("not pulling buddy up due to cMode");
             return;
         }
         buddyBackWinch.set(-0.6);
@@ -154,7 +154,7 @@ public class Climb extends Subsystem {
 
     public void pullBuddyUpFront() {
         if (!cMode) {
-            // System.out.println("not pulling buddy up due to cMode");
+            toConsoleln("not pulling buddy up due to cMode");
             return;
         }
         buddyFrontWinch.set(-0.7);
@@ -178,7 +178,7 @@ public class Climb extends Subsystem {
 
     public void releaseWinch() {
         if (!cMode) {
-            System.out.println("Not reversing winch due to cMode");
+            toConsoleln("Not reversing winch due to cMode");
             return;
         }
         winchMotor.set(-0.4);
@@ -190,7 +190,7 @@ public class Climb extends Subsystem {
 
     public void driveWithClimbJoystick(Joystick pJoystick) {
         if (!cMode) {
-            System.out.println("Not raising climb hooks due to cMode");
+            toConsoleln("Not raising climb hooks due to cMode");
             return;
         }
         double y = -pJoystick.getY();
@@ -316,4 +316,33 @@ public class Climb extends Subsystem {
     // leftBuddyServo.set(.5);
     // }
     // }
+
+
+        /**
+     * toConsoleln - this routine looks at the BallShooterConstants.debug to
+     * determine if it should write something to the console or not. If debug is
+     * true, it will to a println of the string passed in.
+     * 
+     * @param s - the string to write to the console out with a carriage return
+     *          after it.
+     */
+    private void toConsoleln(final String s) {
+        if (ClimbConstants.debug) {
+            System.out.println(s);
+        }
+    }
+
+    /**
+     * toConsole - this routine looks at the BallShooterConstants.debug to determine
+     * if it should write something to the console or not. If debug is true, it will
+     * to a println of the string passed in.
+     * 
+     * @param s - the string to write out to the console..
+     */
+    private void toConsole(final String s) {
+        if (ClimbConstants.debug) {
+            System.out.print(s);
+        }
+    }
+
 }

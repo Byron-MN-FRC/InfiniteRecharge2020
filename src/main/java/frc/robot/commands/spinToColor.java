@@ -53,10 +53,11 @@ public class spinToColor extends Command {
     @Override
     protected boolean isFinished() {
         String receivedGameData = DriverStation.getInstance().getGameSpecificMessage();
-        if (receivedGameData == null){
+        if ((receivedGameData == null) || (receivedGameData.length() == 0)){
             return true;
+        } else {
+            return Robot.controlPanel.colormatch(receivedGameData);
         }
-        return Robot.controlPanel.colormatch(receivedGameData);
     }
 
     // Called once after isFinished returns true
