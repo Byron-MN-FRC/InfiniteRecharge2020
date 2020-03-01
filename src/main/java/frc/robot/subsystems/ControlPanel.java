@@ -121,7 +121,7 @@ addChild("colorSolenoid",colorSolenoid);
 
   @Override
   public void periodic() {
-    // Put code here to be run every loop
+ 
 
   }
 
@@ -142,7 +142,7 @@ addChild("colorSolenoid",colorSolenoid);
 
   public void spinCount() {   
     if (colorSensorStatus == true) {
-      spinMotor.set(.6);	   
+      spinMotor.set(.2); // .6	   
     } else {
       toConsoleln("Color sensor disengaged - no spining");  
     }	
@@ -272,7 +272,7 @@ addChild("colorSolenoid",colorSolenoid);
 
   // motor config taken from MotionMagic example at
   // https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages
-  public void motorConfig() {
+  private void motorConfig() {
     /* Factory default hardware to prevent unexpected behavior */
     spinMotor.configFactoryDefault();
 
@@ -391,5 +391,9 @@ addChild("colorSolenoid",colorSolenoid);
     colorSensorStatus = false;
     motorConfig();
 
+  }
+
+  public void zeroSensors() {
+    spinMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs); 
   }
 }

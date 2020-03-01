@@ -124,7 +124,7 @@ btnStartShooter.whileHeld(new startShooter());
 driveJoystick = new Joystick(0);
 
 btnSpinWheelWithEncoders = new JoystickButton(driveJoystick, 3);
-btnSpinWheelWithEncoders.whileHeld(new spinCtrlPanelByEncorder());
+btnSpinWheelWithEncoders.whenPressed(new spinCtrlPanelByEncorder());
 btnSpinToColor = new JoystickButton(driveJoystick, 5);
 btnSpinToColor.whenPressed(new spinToColor());
 btnDisengageColorSensor = new JoystickButton(driveJoystick, 7);
