@@ -46,7 +46,12 @@ public class pullRobotUp extends Command {
     @Override
     protected void execute() {
          // Robot.climb.pullRobotUp = !Robot.climb.pullRobotUp();
-        Robot.climb.pullRobotUp();
+         if (! Robot.climb.isLimitSwitchDown() ) {
+            Robot.climb.pullRobotUp();
+         } else {
+            Robot.climb.stopPullRobotUp(); 
+         }
+       
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,7 +59,7 @@ public class pullRobotUp extends Command {
     protected boolean isFinished() {
         //System.out.println("Proximity =" + Robot.climb.getProximity());
         //return Robot.climb.getProximity() >= 3000;
-        return Robot.climb.getProximity() >= 3000;
+        return Robot.climb.isLimitSwitchDown();
         //return false;
     }
 
