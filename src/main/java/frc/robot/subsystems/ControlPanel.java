@@ -331,6 +331,7 @@ public class ControlPanel extends Subsystem {
 
   public void retractColorSensor() {
     colorSolenoid.set(Value.kReverse);
+
   }
 
   public void raiseColorSensor() {
