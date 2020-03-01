@@ -109,5 +109,5 @@ public class Constants {
 	public static final double encodeUnitsToFeet = -22684.24;//Real robot
 	// public static final double encodeUnitsToFeet = 14177.65;//Fake robot
 	//Auto stuff
-	public static final String autoPostion = "Starting Position (L, M, R)";  
+	public static final String autoPosition = "drive/Starting Position (L, M, R)";  
 }

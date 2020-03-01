@@ -162,23 +162,21 @@ public void spin(double motorSpeed) {
     ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
     String colorString = getColorString(match.color);
 
-    // SmartDashboard.putNumber("Color", detectedColor.red);
-    SmartDashboard.putString("Game Color", gameData);
-    SmartDashboard.putString("Color Detected", colorString);
-    System.out.println("rgb detected" + colorString + " : " + rgb);
-    SmartDashboard.putNumber("Color Confidence", match.confidence);
+    SmartDashboard.putString("test/control/Game Color", gameData);
+    SmartDashboard.putString("test/control/Color Detected", colorString);
+    SmartDashboard.putNumber("test/control/Color Confidence", match.confidence);
     switch (gameData.charAt(0)) {
     case 'B':
       // Blue case code
       if (match.color == kBlueTarget) {
-        SmartDashboard.putString("Color seen", "Blue");
+        SmartDashboard.putString("test/control/Color seen", "Blue");
         return validColor(getColorString(match.color));
       }
       break;
     case 'G':
       // Green case code
       if (match.color == kGreenTarget) {
-        SmartDashboard.putString("Color seen", "Green");
+        SmartDashboard.putString("test/control/Color seen", "Green");
         return validColor(getColorString(match.color));
       }
       break;
@@ -186,7 +184,7 @@ public void spin(double motorSpeed) {
     case 'R':
       // Red case code
       if (match.color == kRedTarget) {
-        SmartDashboard.putString("Color seen", "Red");
+        SmartDashboard.putString("test/control/Color seen", "Red");
         return validColor(getColorString(match.color));
       }
       break;
@@ -194,7 +192,7 @@ public void spin(double motorSpeed) {
     case 'Y':
       // Yellow case code
       if (match.color == kYellowTarget) {
-        SmartDashboard.putString("Color seen", "Yellow");
+        SmartDashboard.putString("test/control/Color seen", "Yellow");
         return validColor(getColorString(match.color));
       }
       break;
