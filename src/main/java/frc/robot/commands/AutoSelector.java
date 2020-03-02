@@ -51,13 +51,13 @@ public class AutoSelector extends CommandGroup {
         addParallel(new setHoodToZero());
         addSequential(new driveStraightFeet(7));
         addSequential(new autoTurn(-75));
-        //addSequential(new AutoLimeLightTurn());
+        addSequential(new LimeLightTurn());
         addSequential(new autoAutoShootCMD());
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
         addSequential(new autoTurn(75));
         //addParallel(new startAcquisition());
-        addSequential(new driveStraightFeet(8.1));
+        //addSequential(new driveStraightFeet(8.1));
       } else if (startingPosition.toUpperCase().equals("M")) {
 
         //addParallel(new AutoSpinup());

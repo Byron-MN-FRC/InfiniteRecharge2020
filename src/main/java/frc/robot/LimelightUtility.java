@@ -93,10 +93,10 @@ public class LimelightUtility {
 
     static public void WriteDouble(String tableField, double fieldValue){
         NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-        System.out.print("Setting Limelight value:  ");
-        System.out.print(tableField);
-        System.out.print(" = ");
-        System.out.println(fieldValue);
+        // System.out.print("Setting Limelight value:  ");
+        // System.out.print(tableField);
+        // System.out.print(" = ");
+        // System.out.println(fieldValue);
         table.getEntry(tableField).setNumber(fieldValue);
     }
 
