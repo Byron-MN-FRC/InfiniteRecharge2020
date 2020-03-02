@@ -13,7 +13,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
-import frc.robot.subsystems.*;
+//import frc.robot.subsystems.*;
 
 /**
  *
@@ -48,34 +48,33 @@ public class AutoSelector extends CommandGroup {
       if (startingPosition.toUpperCase().equals("L")) {
 
         //addParallel(new AutoSpinup());
+        addParallel(new setHoodToZero());
         addSequential(new driveStraightFeet(7));
         addSequential(new autoTurn(-75));
-        //addSequential(new AutoLimeLightTurn());
+        addSequential(new LimeLightTurn());
         addSequential(new autoAutoShootCMD());
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
         addSequential(new autoTurn(75));
-        addParallel(new startAcquisition());
-        addSequential(new driveStraightFeet(8.1));
+        //addParallel(new startAcquisition());
+        //addSequential(new driveStraightFeet(8.1));
       } else if (startingPosition.toUpperCase().equals("M")) {
 
-        //addParallel(new AutoSpinup());
-        addSequential(new autoTurn(-10));
         //addSequential(new AutoLimeLightTurn());
         //addSequential(new AutoIndexer());
         //addSequential(new stopShooter());
         //addParallel(new startAcquisition());
-        addSequential(new autoTurn(105));
-        addSequential(new driveStraightFeet(7.5));
+        addSequential(new LimeLightTurn());
+        addSequential(new autoAutoShootCMD());
+        addSequential(new autoTurn(100));
+        addSequential(new driveStraightFeet(2));
         
     }else if (startingPosition.toUpperCase().equals("R")) {
 
-        //addParallel(new AutoSpinup());
-        addSequential(new autoTurn(45));
-        addSequential(new driveStraightFeet(11));
-        //addSequential(new AutoLimeLightTurn());
-        //addSequential(new AutoIndexer());
-        //addSequential(new stopShooter());
+        addSequential(new LimeLightTurn());
+        addSequential(new autoAutoShootCMD());
+        addSequential(new autoTurn(120));
+        addSequential(new driveStraightFeet(2));
 
     }else {
         addSequential(new driveStraightFeet(2));

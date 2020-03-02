@@ -42,17 +42,20 @@ public class startShooter extends Command {
     private void requires(BallShooter ballShooter) {
     }
 
+    private double rpms;
+
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
         indexBeltRunner = new runIndexBelt();
         Robot.ballIndexer.shooterActive = true;
+        rpms = -Robot.ballShooter.getShooterRPM();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.ballShooter.ready2Shoot(-Robot.ballShooter.getShooterRPM(), BallShooterConstants.kHoodUpEncoderMax)) {
+        if (Robot.ballShooter.ready2Shoot(rpms, BallShooterConstants.kHoodUpEncoderMax)) {
             if (!indexBeltRunner.isRunning()) {
                 System.out.println("Running belt motor");
                 indexBeltRunner.start();
