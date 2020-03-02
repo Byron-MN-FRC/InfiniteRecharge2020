@@ -13,6 +13,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.ControlPanelConstants;
 import frc.robot.Robot;
 
 /**
@@ -46,7 +47,7 @@ public class spinToColor extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.controlPanel.spin(SmartDashboard.getNumber("MotorSpeed",0.4));
+        Robot.controlPanel.spin(ControlPanelConstants.spin2ColorSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -64,6 +65,7 @@ public class spinToColor extends Command {
     @Override
     protected void end() {
         Robot.controlPanel.stop();
+        Robot.controlPanel.zeroSensors();
     }
 
     // Called when another command which requires one or more of the same

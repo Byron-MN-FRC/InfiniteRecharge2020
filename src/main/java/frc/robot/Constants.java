@@ -111,6 +111,6 @@ public class Constants {
 	//Auto stuff
 	public static final String autoPosition = "drive/Starting Position (L, M, R)";
 
-	public static final boolean testControl = false; 
+	public static final boolean testControl = true; 
 	public static final boolean testDrive = false; 
 }
