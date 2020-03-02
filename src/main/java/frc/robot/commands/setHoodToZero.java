@@ -39,7 +39,7 @@ public class setHoodToZero extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        setTimeout(2);
+        setTimeout(3);
     }
 
     // Called repeatedly when this Command is scheduled to run
