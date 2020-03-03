@@ -159,7 +159,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
             toConsoleln("not pulling buddy up due to cMode");
             return;
         }
-        buddyBackWinch.set(-0.6);
+        buddyBackWinch.set(-0.7);
 
     }
 
@@ -168,7 +168,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
             toConsoleln("not pulling buddy up due to cMode");
             return;
         }
-        buddyFrontWinch.set(-0.7);
+        buddyFrontWinch.set(-0.8);
     }
 
     public void stopBuddyFront() {
