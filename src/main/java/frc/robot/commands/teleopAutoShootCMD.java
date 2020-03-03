@@ -55,7 +55,7 @@ public class teleopAutoShootCMD extends Command {
             area = LimelightUtility.TargetAreaPercentage * 100; 
         } else {
             System.out.println("No target");
-            area = 100;
+            area = 70;
         }  
         rpms = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[0];
         hoodEncoderUnits = BallShooterConstants.targetPercent2ShooterParms.floorEntry((int)area).getValue()[1];
