@@ -47,18 +47,20 @@ public class startAcquisition extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.ballIndexer.ballPresent(2)){
+       // if (Robot.ballIndexer.ballPresent(2)){
             //Don't enable aquisition if we are full
-            cancel();
-        } else {
+            //cancel();
+      //  } else {
             Robot.ballAcquisition.startAcquireMotor();
         }
-    }
+    //}
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return Robot.ballIndexer.ballPresent(2);
+     //   boolean b1 = Robot.ballIndexer.ballPresent(2);
+     //   boolean b2 = Robot.ballIndexer.ballPresent(0);
+        return (Robot.ballIndexer.ballPresent(2) && Robot.ballIndexer.ballPresent(0));
     }
 
     // Called once after isFinished returns true

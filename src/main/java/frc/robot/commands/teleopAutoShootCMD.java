@@ -11,7 +11,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.BallIndexerConstants;
 import frc.robot.BallShooterConstants;
 import frc.robot.LimelightUtility;
 import frc.robot.Robot;
@@ -77,12 +76,15 @@ public class teleopAutoShootCMD extends Command {
             if (!indexBeltRunner.isRunning()) {
                 System.out.println("teleopAutoShootCMD is Running belt motor");
                 indexBeltRunner.start();
+                
+            } else if(!Robot.ballIndexer.ballPresent(1)) {
+                Robot.ballAcquisition.startAcquireMotor();
             }
         } else {
             if (indexBeltRunner.isRunning()) {
                 System.out.println("teleopAutoShootCMD is Cancelling belt motor");
                 
-                indexBeltRunner.cancel();
+                indexBeltRunner.cancel();   
             }
        }
     }
@@ -90,8 +92,7 @@ public class teleopAutoShootCMD extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        if (isTimedOut()) System.out.println("timed out!");
-       return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -101,6 +102,7 @@ public class teleopAutoShootCMD extends Command {
         if (indexBeltRunner.isRunning()) {
             indexBeltRunner.cancel();
         }
+        Robot.ballAcquisition.stopAcquireMotor();
         Robot.ballIndexer.shooterActive =false;
     }
 

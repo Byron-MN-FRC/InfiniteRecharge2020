@@ -11,7 +11,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
@@ -59,6 +58,7 @@ public class spinCtrlPanelByEncorder extends Command {
     @Override
     protected void end() {
         Robot.controlPanel.stop();
+        Robot.controlPanel.zeroSensors();
     }
 
     // Called when another command which requires one or more of the same

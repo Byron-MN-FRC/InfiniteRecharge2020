@@ -43,7 +43,7 @@ public class pullBuddyUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.climb.pullBuddyUp();
+        Robot.climb.pullBuddyUpBack();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -56,7 +56,7 @@ public class pullBuddyUp extends Command {
     @Override
     protected void end() {
         Robot.climb.stopBuddyWinch();
-        Robot.climb.toggleServoOff();
+      //  Robot.climb.toggleServoOff();
     }
 
     // Called when another command which requires one or more of the same

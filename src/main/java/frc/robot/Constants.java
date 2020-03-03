@@ -9,8 +9,8 @@ public class Constants {
 	public static final boolean kEnableCurrentLimiting_DT = true;
 	// public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "DriveTrain/Amp Limit";
 	// public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "DriveTrain/Amp Peak Limit";
-	public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "Amp Limit";
-	public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "Amp Peak Limit";
+	public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "test/drive/Amp Limit";
+	public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "test/drive/Amp Peak Limit";
 
 	public static final double kthreshholdTime = 0;
 
@@ -109,5 +109,8 @@ public class Constants {
 	public static final double encodeUnitsToFeet = -22684.24;//Real robot
 	// public static final double encodeUnitsToFeet = 14177.65;//Fake robot
 	//Auto stuff
-	public static final String autoPostion = "Starting Position (L, M, R)";  
+	public static final String autoPosition = "drive/Starting Position (L, M, R)";
+
+	public static final boolean testControl = true; 
+	public static final boolean testDrive = false; 
 }

@@ -38,16 +38,22 @@ public class BallShooterConstants {
 	public static final Gains kGains_shootMotor = new Gains(0.4, 0.00001, 0.0, 0.049, 500, 1.0);
 
 
+	/**
+	 * This is our best shooting position, edge of control panel trough
+	 */
 	//
+	public static final double magicRPMS = -4500;
+	
 	public static final TreeMap<Integer, double[]> targetPercent2ShooterParms = new TreeMap<Integer, double[]>() {
 		private static final long serialVersionUID = 1L;
 		{	   //target						Hood
 			   //percentage			RPMs	Encoder
 			put( 350, new double[] { -3200, 3900 });
 			put( 200, new double[] { -3500, 3800 });
+			put( 134, new double[] { -3650, 3750});
 			put( 100, new double[] { -3800, 3700 });
-			put( 70, new double[] { -4300, 3200 }); // magic spot
-			put( 25, new double[] { -5000, 3200 });
+			put( 70, new double[] { magicRPMS, 3200 }); // magic spot
+			put( 25, new double[] { -5000, 2500 });
 			put( 0, new double[] { -4300, 3200 });
 
 		}
@@ -74,9 +80,10 @@ public class BallShooterConstants {
 		}
 		}*/
 	public static final boolean debug = true;
+	public static final boolean test = false;
 	public static final double teleopAutoShootCmdTimeout = 10;
-	public static final double kLoopsToSettle = 10;
-	public static final int kErrThreshold = 500;
+	public static final double kLoopsToSettle = 20;
+	public static final int kErrThreshold = 300;
 
 	/**
 	 * Position the hood is moved to when idleing.  This should be 0 or stowed so that we can drive under
@@ -89,6 +96,7 @@ public class BallShooterConstants {
 	 * conservation of energy and time so that we don't need to spin up each time we try to shoot.
 	 */
 	public static final double shootIdleVelocity = -2500;
+	public static final double shootClimbVelocity = 0;
 
 	}
 
