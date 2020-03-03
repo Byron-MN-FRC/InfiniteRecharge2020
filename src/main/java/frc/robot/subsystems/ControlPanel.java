@@ -350,12 +350,14 @@ addChild("colorSolenoid",colorSolenoid);
   }
 
   public void retractColorSensor() {
+    spinMotor.set(0);
     colorSolenoid.set(Value.kReverse);
     colorSensorStatus = false;
   }
 
   public void raiseColorSensor() {
-    colorSolenoid.set(Value.kForward);
+   // m_colorSensor.
+   colorSolenoid.set(Value.kForward);
     colorSensorStatus = true;
   }
 
