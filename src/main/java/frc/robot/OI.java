@@ -63,6 +63,7 @@ public JoystickButton btnEngageColorSensor;
 public JoystickButton btnDisengageColorSensor;
 public JoystickButton btnSpinToColor;
 public JoystickButton btnSpinWheelWithEncoders;
+public JoystickButton btnLimeLightOff;
 public Joystick driveJoystick;
 public JoystickButton btnStartShooter;
 public JoystickButton btnStopShooting;
@@ -123,6 +124,8 @@ btnStartShooter = new JoystickButton(accessoriesJoystick, 5);
 btnStartShooter.whileHeld(new startShooter());
 driveJoystick = new Joystick(0);
 
+btnLimeLightOff = new JoystickButton(driveJoystick, 9);
+btnLimeLightOff.whenPressed(new turnLimeLightOff());
 btnSpinWheelWithEncoders = new JoystickButton(driveJoystick, 3);
 btnSpinWheelWithEncoders.whenPressed(new spinCtrlPanelByEncorder());
 btnSpinToColor = new JoystickButton(driveJoystick, 5);

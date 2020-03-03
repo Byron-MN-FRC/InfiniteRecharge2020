@@ -289,6 +289,10 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
 
     // supposed to deploy buddy net, not currently being used.
     public void deployBuddyNet() {
+        if (!cMode) {
+            toConsoleln("Not deploying net due to cMode");
+            return;
+        }
         buddyPiston.set(true); // ask if it will go
         // Timer.delay(5);
         // toggleServoOn();
@@ -315,6 +319,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
         // leftBuddyServo.set(0);
         // rightBuddyServo.set(1);
         cMode = false;
+        buddyPiston.set(false);
     }
     // moves right and left servos
     // public void toggleServos() {
