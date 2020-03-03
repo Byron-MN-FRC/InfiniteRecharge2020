@@ -204,8 +204,13 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
             toConsoleln("Not raising climb hooks due to cMode");
             return;
         }
-        double y = -pJoystick.getY();
-        hookMotor.set(ControlMode.PercentOutput, y);
+
+        if (hookMotor.getSelectedSensorPosition() > 38000) {
+            hookMotor.stopMotor();
+        } else {
+            double y = -pJoystick.getY();
+            hookMotor.set(ControlMode.PercentOutput, y);
+        }
     }
 
     public void motorConfig() {
