@@ -694,6 +694,35 @@ Children:
           value: whenPressed
       Base: Joystick Button
       Name: btnSpinWheelWithEncoders
+    - Children: []
+      Properties:
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: DriveJoystick}
+        Parameters: !!robotbuilder.data.properties.ParametersProperty
+          default: []
+          name: Parameters
+          validators: null
+          value: []
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id018
+          default: '1'
+          name: Button
+          validators: null
+          value: '9'
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id019
+          value: turnLimeLightOff
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id020
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+      Base: Joystick Button
+      Name: btnLimeLightOff
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: &id021 ['0', '1', '2', '3', '4', '5']
@@ -1168,35 +1197,6 @@ Children:
           value: whenPressed
       Base: Joystick Button
       Name: btnDeployLinearSlide
-    - Children: []
-      Properties:
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: AccessoriesJoystick}
-        Parameters: !!robotbuilder.data.properties.ParametersProperty
-          default: []
-          name: Parameters
-          validators: null
-          value: []
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id018
-          default: '1'
-          name: Button
-          validators: null
-          value: '9'
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id019
-          value: turnLimeLightOff
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id020
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whenPressed
-      Base: Joystick Button
-      Name: btnLimeLightOff
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id021
