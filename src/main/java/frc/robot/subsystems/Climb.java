@@ -365,5 +365,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
     //         System.out.print(s);
     //     }
     // }
-
+    public Solenoid getBuddyPiston() {
+        return buddyPiston;
+    }
 }
