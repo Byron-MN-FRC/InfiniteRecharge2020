@@ -159,7 +159,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
             toConsoleln("not pulling buddy up due to cMode");
             return;
         }
-        buddyBackWinch.set(-0.7);
+        buddyBackWinch.set(-1);
 
     }
 
@@ -168,7 +168,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
             toConsoleln("not pulling buddy up due to cMode");
             return;
         }
-        buddyFrontWinch.set(-0.8);
+        buddyFrontWinch.set(-0.9);
     }
 
     public void stopBuddyFront() {
@@ -365,5 +365,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
     //         System.out.print(s);
     //     }
     // }
-
+    public Solenoid getBuddyPiston() {
+        return buddyPiston;
+    }
 }

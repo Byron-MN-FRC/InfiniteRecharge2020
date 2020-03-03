@@ -104,6 +104,7 @@ shifter = new Shifter();
         LimelightUtility.StreamingMode(StreamMode.Standard);
         Robot.ballShooter.teleopWithIdle = false;
         Robot.ballShooter.setShootIdleVelocity(0);
+        Robot.climb.getBuddyPiston().set(false);
     }
 
     @Override
