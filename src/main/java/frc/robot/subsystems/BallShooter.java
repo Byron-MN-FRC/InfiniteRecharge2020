@@ -523,7 +523,7 @@ addChild("limitSwitchDown",limitSwitchDown);
         // hoodMotor.configPeakCurrentDuration(300);
         // hoodMotor.enableCurrentLimit(true);
 
-        hoodMotor.set(ControlMode.PercentOutput, -0.5);
+        hoodMotor.set(ControlMode.PercentOutput, -0.6);
         // check to see if the limit switch is trippped.
         boolean limitReached = !this.limitSwitchDown.get();
 

@@ -50,7 +50,7 @@ public class BallShooterConstants {
 			   //percentage			RPMs	Encoder
 			put( 350, new double[] { -3200, 3900 });
 			put( 200, new double[] { -3500, 3800 });
-			put( 134, new double[] { -3650, 3750});
+			put( 134, new double[] { -3650, 3700});
 			put( 100, new double[] { -3800, 3700 });
 			put( 70, new double[] { magicRPMS, 3200 }); // magic spot
 			put( 25, new double[] { -5000, 2500 });

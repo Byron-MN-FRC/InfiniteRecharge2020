@@ -9,8 +9,8 @@ public class Constants {
 	public static final boolean kEnableCurrentLimiting_DT = true;
 	// public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "DriveTrain/Amp Limit";
 	// public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "DriveTrain/Amp Peak Limit";
-	public final static double kAmpLimit_DT = 12; public static final String kAmpLimitName_DT = "test/drive/Amp Limit";
-	public final static double kAmpPeak_DT = 15; public static final String kAmpPeakLimitName_DT = "test/drive/Amp Peak Limit";
+	public final static double kAmpLimit_DT = 40; public static final String kAmpLimitName_DT = "test/drive/Amp Limit";
+	public final static double kAmpPeak_DT = 60; public static final String kAmpPeakLimitName_DT = "test/drive/Amp Peak Limit";
 
 	public static final double kthreshholdTime = 0;
 

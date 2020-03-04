@@ -331,8 +331,8 @@ tankDrive.setMaxOutput(1.0);
         rightMaster.configClosedLoopPeriod(1, closedLoopTimeMs, Constants.kTimeoutMs);
 
         // Motion Magic Configs
-        _rightConfig.motionAcceleration = 7500; // (distance units per 100 ms) per second
-        _rightConfig.motionCruiseVelocity = 15000; // distance units per 100 ms
+        _rightConfig.motionAcceleration = 9500; // (distance units per 100 ms) per second
+        _rightConfig.motionCruiseVelocity = 17000; // distance units per 100 ms
 
         // APPLY the config settings
         leftMaster.configAllSettings(_leftConfig);
@@ -532,7 +532,7 @@ tankDrive.setMaxOutput(1.0);
     }
 
     public void autonomousLimiting() {
-        double max = 0.5;
+        double max = 0.70;
         leftMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);

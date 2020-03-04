@@ -49,7 +49,7 @@ public class AutoSelector extends CommandGroup {
         
         //addParallel(new AutoSpinup());
         addParallel(new setHoodToZero());
-        addSequential(new driveStraightFeet(7));
+        addSequential(new driveStraightFeet(6.5));
         addSequential(new autoTurn(-75));
         addSequential(new LimeLightTurn());
         addSequential(new autoAutoShootCMD());
