@@ -46,11 +46,11 @@ public class indexReverseOne extends Command {
     @Override
     protected void execute() {
         Robot.ballIndexer.startIndexMotor(BallIndexerConstants.reverseMotorSpeed);
-        if (Robot.ballIndexer.ballPresent(1)){
-            indexOneBall idxCmd = new indexOneBall();
-            idxCmd.start();
-            cancel();
-        }
+       // if (Robot.ballIndexer.ballPresent(1)){
+           // indexOneBall idxCmd = new indexOneBall();
+            //idxCmd.start();
+            //cancel();
+        //}
     }
 
     // Make this return true when this Command no longer needs to run execute()

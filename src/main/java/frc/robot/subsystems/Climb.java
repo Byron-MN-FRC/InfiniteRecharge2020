@@ -143,7 +143,7 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
             toConsoleln("Not raising robot due to cMode");
             return;
         }
-        winchMotor.set(0.7);
+        winchMotor.set(1.0);
         if (hookMotor.getSelectedSensorPosition() >= 0) {
             hookMotor.set(-0.1);
         } else {
@@ -254,8 +254,8 @@ addChild("winchLimitSwitchDown",winchLimitSwitchDown);
         /* Set acceleration and vcruise velocity - see documentation */
         // hookMotor.configMotionCruiseVelocity(15000, ClimbConstants.kTimeoutMs);
         // hookMotor.configMotionAcceleration(6000, ClimbConstants.kTimeoutMs);
-        hookMotor.configMotionCruiseVelocity(11250, ClimbConstants.kTimeoutMs);
-        hookMotor.configMotionAcceleration(4500, ClimbConstants.kTimeoutMs);
+        hookMotor.configMotionCruiseVelocity(8437, ClimbConstants.kTimeoutMs);
+        hookMotor.configMotionAcceleration(3375, ClimbConstants.kTimeoutMs);
 
         // /* Zero the sensor */
         hookMotor.setSelectedSensorPosition(0, ClimbConstants.kPIDLoopIdx, ClimbConstants.kTimeoutMs);

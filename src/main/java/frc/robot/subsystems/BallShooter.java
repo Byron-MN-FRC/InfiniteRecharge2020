@@ -448,6 +448,7 @@ addChild("limitSwitchDown",limitSwitchDown);
     public boolean hoodAtPosition() {
         final double err = hoodMotor.getClosedLoopError(BallShooterConstants.kPIDLoopIdx);
         return Math.abs(err) < BallShooterConstants.kHoodPositionTolerance;
+        //return true;
     }
 
     double pp = 0;

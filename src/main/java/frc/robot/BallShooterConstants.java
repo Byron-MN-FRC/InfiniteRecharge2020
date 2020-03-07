@@ -42,19 +42,19 @@ public class BallShooterConstants {
 	 * This is our best shooting position, edge of control panel trough
 	 */
 	//
-	public static final double magicRPMS = -4500;
+	public static final double magicRPMS = -4725;
 	
 	public static final TreeMap<Integer, double[]> targetPercent2ShooterParms = new TreeMap<Integer, double[]>() {
 		private static final long serialVersionUID = 1L;
 		{	   //target						Hood
 			   //percentage			RPMs	Encoder
-			put( 350, new double[] { -3200, 3900 });
-			put( 200, new double[] { -3500, 3800 });
-			put( 134, new double[] { -3650, 3700});
-			put( 100, new double[] { -3800, 3700 });
-			put( 70, new double[] { magicRPMS, 3200 }); // magic spot
-			put( 25, new double[] { -5000, 2500 });
-			put( 0, new double[] { -4300, 3200 });
+			put( 350, new double[] { -3360, 4500 });
+			put( 200, new double[] { -3675, 4400 });
+			put( 134, new double[] { -3832, 4250});
+			put( 100, new double[] { -3990, 4100 });
+			put( 70, new double[] { magicRPMS, 3400 }); // magic spot
+			put( 25, new double[] { -5250, 2700 });
+			put( 0, new double[] { -4725, 3400 });
 
 		}
 	};
@@ -82,7 +82,7 @@ public class BallShooterConstants {
 	public static final boolean debug = true;
 	public static final boolean test = false;
 	public static final double teleopAutoShootCmdTimeout = 10;
-	public static final double kLoopsToSettle = 20;
+	public static final double kLoopsToSettle = 15;
 	public static final int kErrThreshold = 300;
 
 	/**

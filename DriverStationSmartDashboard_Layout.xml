@@ -1,5 +1,9 @@
 <xml version="1.0">
 <dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
+		<location x="177" y="270"/>
+		<property name="Camera Choice" value="USB Camera 1"/>
+	</static-widget>
 	<widget field="setHoodToZero" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="167" y="238"/>
 	</widget>
