@@ -137,7 +137,7 @@ addChild("limitSwitchDown",limitSwitchDown);
             setMasterShootVelocity(masterShootRPM);
         } else {
             shootMotor.set(ControlMode.PercentOutput, 0);
-            setMasterHoodPos(masterHoodPos);
+         setMasterHoodPos(masterHoodPos);
         }
     }
 
