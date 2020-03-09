@@ -153,6 +153,7 @@ shifter = new Shifter();
 
         // Robot.driveTrain.teleopLimiting();
         initializeSubsystems();
+        Robot.driveTrain.teleopLimiting();
     }
 
     /**

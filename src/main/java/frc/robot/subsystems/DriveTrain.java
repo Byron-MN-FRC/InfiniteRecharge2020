@@ -183,9 +183,9 @@ tankDrive.setMaxOutput(1.0);
             leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
             rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
             rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
-            y = ThrottleLookup.calcJoystickCorrection("HighGearRamp", y);
+      //      y = ThrottleLookup.calcJoystickCorrection("HighGearRamp", y);
             // twist = ThrottleLookup.calcJoystickCorrection("HighGearTurn", twist);
-            twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
+       //     twist = (twist < 0) ? -Math.pow(Deadband(twist), 2) : Math.pow(Deadband(twist), 2);
             tankDrive.arcadeDrive(y, -twist);
         } else {
             double max = .4;
@@ -194,8 +194,8 @@ tankDrive.setMaxOutput(1.0);
             leftMaster.configPeakOutputReverse(-maxxx, Constants.kTimeoutMs);
             rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
             rightMaster.configPeakOutputReverse(-maxxx, Constants.kTimeoutMs);
-            y = ThrottleLookup.calcJoystickCorrection("LowGearRamp", y);
-            twist = ThrottleLookup.calcJoystickCorrection("LowGearTurn", twist);
+        //    y = ThrottleLookup.calcJoystickCorrection("LowGearRamp", y);
+        //    twist = ThrottleLookup.calcJoystickCorrection("LowGearTurn", twist);
             tankDrive.arcadeDrive(y, -twist);
         }
 
@@ -545,6 +545,10 @@ tankDrive.setMaxOutput(1.0);
         leftMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputForward(max, Constants.kTimeoutMs);
         rightMaster.configPeakOutputReverse(-max, Constants.kTimeoutMs);
+        leftMaster.configOpenloopRamp(1.0,Constants.kTimeoutMs);
+        rightMaster.configOpenloopRamp(1.0,Constants.kTimeoutMs);
+    //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
+    //    leftMaster.configOpenloopRamp(1.5,Constants.kTimeoutMs);
     }
 
     public TalonFXConfiguration getRightMotor() {
